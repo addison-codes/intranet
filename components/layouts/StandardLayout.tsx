@@ -1,9 +1,62 @@
-import NextLogo from './NextLogo'
-import SupabaseLogo from './SupabaseLogo'
+import * as React from 'react';
+// import { useRouter } from 'next/router'
+import { useEffect, useRef, useState } from 'react';
 
-export default function Header() {
+
+
+import LogRocket from 'logrocket'
+import { useSession } from 'next-auth/react'
+import { useNotionContext } from 'react-notion-x'
+
+import Dropdown from '@/components/Dropdown'
+import Footer from '@/components/Footer'
+import Search from '@/components/Search'
+
+
+LogRocket.init('9rsy9p/intranet')
+
+export const StandardLayout: React.FC<React.PropsWithChildren> = ({
+  children
+}) => {
+  // const router = useRouter()
+  const [searchResults, setSearchResults] = useState([])
+  const [showResults, setShowResults] = useState(false)
+  const { components, mapPageUrl } = useNotionContext()
+  console.log(components)
+  const { data: session } = useSession()
+
+  // Reference for click event listener
+  const wrapperRef = useRef(null)
+
+  // This is an example script - don't forget to change it!
+  LogRocket.identify(session?.user.email, {
+    name: session?.user.name,
+    email: session?.user.email
+
+    // Add your own custom user variables here, ie:
+  })
+
+  useEffect(() => {
+    // Function executed when clicked outside of result container
+    function handleClickOutside(event) {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setSearchResults([])
+        setShowResults(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
   return (
-    <div className="flex flex-col gap-16 items-center">
+    <>
+            <div className='w-full bg-aptpblue'>
+          <div className='container w-full p-2 mx-auto text-xl text-center text-white'>File downloads and some previews are not working as intended. We are currently working to fix this issue.</div>
+        </div>
       <header className={'flex flex-col-reverse w-full'}>
         <nav className='container mx-auto border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-900 dark:border-gray-800 order-1'>
           <div className='flex items-center justify-between'>
@@ -17,7 +70,7 @@ export default function Header() {
                 {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Alliance PTP</span> */}
               </a>
             </div>
-            {/* <Dropdown /> */}
+            <Dropdown />
 
             <div className='flex items-center justify-between flex-shrink-0 ml-4 sm:hidden lg:order-2'>
               <button
@@ -49,7 +102,7 @@ export default function Header() {
             id='toggleMobileMenu'
             className='container order-3 hidden mx-auto text-white shadow-sm dark:bg-gray-900 md:block dark:border-gray-800 md:order-2'
           >
-            <div className='px-4 py-3 lg:px-6'>
+            <div ref={wrapperRef} className='px-4 py-3 lg:px-6'>
               <div
                 id='mega-menu-full-image'
                 className='items-center justify-between w-full pl-6 sm:hidden md:flex md:w-auto md:order-1'
@@ -114,8 +167,8 @@ export default function Header() {
                   </li>
                 </ul>
                 <div className='flex flex-col items-center justify-between md:flex-row'>
-                  {/* <Search setSearchResults={setSearchResults} /> */}
-                  {/* {searchResults?.length > 0 && (
+                  <Search setSearchResults={setSearchResults} />
+                  {searchResults?.length > 0 && (
                     <div className='absolute right-0 z-10 w-full max-w-sm mt-16 bg-white border border-gray-200 rounded-lg shadow-lg sm:mt-0 sm:top-40'>
                       <ul className='divide-y divide-gray-200'>
                         {searchResults.map((result) => (
@@ -136,7 +189,7 @@ export default function Header() {
                         ))}
                       </ul>
                     </div>
-                  )} */}
+                  )}
                   {/* <ToggleThemeButton /> */}
                 </div>
               </div>
@@ -324,6 +377,21 @@ export default function Header() {
           </nav>
         </div>
       </header>
-    </div>
+      {showResults && (
+        <div
+          ref={wrapperRef}
+          className='absolute right-0 z-[310] w-full max-w-sm bg-white border border-gray-[200] rounded-lg shadow-lg top-full mt-[5px]'
+        >
+          <ul className='divide-y divide-gray-[200]'>
+            {searchResults.map((result) => (
+              <li key={result.id}>...</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {children}
+      <Footer />
+    </>
   )
 }
