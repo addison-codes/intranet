@@ -7,9 +7,8 @@ const DeptIcon = ({ name, link, image, width, tab }) => {
     // eslint-disable-next-line react/jsx-no-target-blank
     <a
       href={link}
-      className={`flex flex-col justify-center pb-2 align-middle transition-all hover:scale-110 ${
-        width ? `sm:w-${width}` : 'w-48'
-      }`}
+      className={`flex flex-col justify-center pb-2 align-middle transition-all hover:scale-110 no-underline ${width ? `sm:w-${width}` : 'w-48'
+        }`}
       target={tab ? '_blank' : ''}
       rel={tab ? 'noreferrer' : ''}
     >
@@ -21,9 +20,9 @@ const DeptIcon = ({ name, link, image, width, tab }) => {
           alt={name}
         />
       </div>
-      <h4 className='text-lg font-bold text-center'>{name}</h4>
+      <h4 className='text-lg font-bold text-black no-underline text-center'>{name}</h4>
     </a>
-  )
-}
+  );
+};
 
-export default DeptIcon
+export default DeptIcon;

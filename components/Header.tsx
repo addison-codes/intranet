@@ -1,6 +1,3 @@
-import NextLogo from './NextLogo'
-import SupabaseLogo from './SupabaseLogo'
-
 export default function Header() {
   return (
     <div className="flex flex-col gap-16 items-center">
@@ -14,7 +11,6 @@ export default function Header() {
                   className='h-20 mr-3'
                   alt='Alliance PTP Logo'
                 />
-                {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Alliance PTP</span> */}
               </a>
             </div>
             {/* <Dropdown /> */}

@@ -3,7 +3,6 @@ import AuthButton from '../components/AuthButton'
 import { createClient } from '@/utils/supabase/server'
 import ConnectSupabaseSteps from '@/components/ConnectSupabaseSteps'
 import SignUpUserSteps from '@/components/SignUpUserSteps'
-import Header from '@/components/Header'
 import { cookies } from 'next/headers'
 import DeptIcon from '@/components/DeptIcon'
 import ReviewCarousel from '@/components/Carousel'
@@ -28,13 +27,12 @@ export default async function Index() {
     <div className="flex-1 w-full flex flex-col gap-20 items-center">
       <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
         <div className="w-full max-w-4xl flex justify-between items-center p-3 text-sm">
-          <DeployButton />
+          {/* <DeployButton /> */}
           {/* {isSupabaseConnected && <AuthButton />} */}
         </div>
       </nav>
 
       <div className="animate-in flex-1 flex flex-col gap-20 opacity-0 max-w-4xl px-3">
-        <Header />
         {/* <main className="flex-1 flex flex-col gap-6">
           <h2 className="font-bold text-4xl mb-4">Next steps</h2>
           {isSupabaseConnected ? <SignUpUserSteps /> : <ConnectSupabaseSteps />}
@@ -74,51 +72,42 @@ export default async function Index() {
             Departments
           </h3>
           <div className='flex flex-wrap items-stretch sm:gap-8 place-content-between'>
-            {/* <DeptIcon
+            <DeptIcon
               name='Front Office Operations'
               link='02ddedf18c36408186e1e65e800ade10'
-              image='frontofficeops'
-            />
+              image='frontofficeops' width={undefined} tab={undefined} />
             <DeptIcon
               name='Marketing'
               link='bd941b39-cf66-4714-9d15-a6e3acfbdec8'
-              image='mktg'
-            />
+              image='mktg' width={undefined} tab={undefined} />
             <DeptIcon
               name='Clinical Operations'
               link='a465a6ca-79d5-4213-8514-6eac0c5201a1'
-              image='clinicalops'
-            />
+              image='clinicalops' width={undefined} tab={undefined} />
             <DeptIcon
               name='Information Technology'
               link='e7a11eef95444dee989323c29b4176b0'
-              image='it'
-            />
+              image='it' width={undefined} tab={undefined} />
             <DeptIcon
               name='Workers Compensation'
               link='6a914851f53845f2a8f9f36477988b6b'
-              image='workerscomp'
-            />
+              image='workerscomp' width={undefined} tab={undefined} />
             <DeptIcon
               name='Human Resources'
               link='f4f28e1f-4c45-453d-8fad-c175fffb049a'
-              image='hr'
-            />
+              image='hr' width={undefined} tab={undefined} />
             <DeptIcon
               name='Continuing Education'
               link='6665d94f9e3b41b096b88737af9b7a6a'
-              image='contued'
-            />
+              image='contued' width={undefined} tab={undefined} />
             <DeptIcon
               name='Compliance'
               link='69ff00c706b347fdbdc7550348af998b'
-              image='compliance'
-            />
+              image='compliance' width={undefined} tab={undefined} />
             <DeptIcon
               name='Revenue Cycle'
               link='50c77c6b40ef448ba564f9df89c3d8b5'
-              image='accounting'
-            /> */}
+              image='accounting' width={undefined} tab={undefined} />
           </div>
         </div>
 
