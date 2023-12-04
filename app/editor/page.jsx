@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
 import dynamic from "next/dynamic";
 import { useState } from "react";
+
 
 import PreviewRenderer from "@/components/PreviewRenderer";
 // important that we use dynamic loading here

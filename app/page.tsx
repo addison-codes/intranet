@@ -1,4 +1,3 @@
-import DeployButton from '../components/DeployButton'
 import AuthButton from '../components/AuthButton'
 import { createClient } from '@/utils/supabase/server'
 import ConnectSupabaseSteps from '@/components/ConnectSupabaseSteps'
@@ -6,40 +5,58 @@ import SignUpUserSteps from '@/components/SignUpUserSteps'
 import { cookies } from 'next/headers'
 import DeptIcon from '@/components/DeptIcon'
 import ReviewCarousel from '@/components/Carousel'
+import { useEffect } from 'react'
+
+
 
 export default async function Index() {
   const cookieStore = cookies()
 
-  const canInitSupabaseClient = () => {
-    // This function is just for the interactive tutorial.
-    // Feel free to remove it once you have Supabase connected.
-    try {
-      createClient(cookieStore)
-      return true
-    } catch (e) {
-      return false
-    }
-  }
+  // const canInitSupabaseClient = () => {
+  //   // This function is just for the interactive tutorial.
+  //   // Feel free to remove it once you have Supabase connected.
+  //   try {
+  //     createClient(cookieStore)
+  //     return true
+  //   } catch (e) {
+  //     return false
+  //   }
+  // }
 
-  const isSupabaseConnected = canInitSupabaseClient()
+  const supabase = createClient(cookieStore)
+
+  console.log(await supabase.auth.getSession());
+
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+  const {
+    data: { session },
+  } = await supabase.auth.getSession()
+
+  console.log('test', user);
+  const isSupabaseConnected = true
+
 
   return (
     <div className="flex-1 w-full flex flex-col gap-20 items-center">
       <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
         <div className="w-full max-w-4xl flex justify-between items-center p-3 text-sm">
-          {/* <DeployButton /> */}
-          {/* {isSupabaseConnected && <AuthButton />} */}
+          {isSupabaseConnected && <AuthButton />}
         </div>
       </nav>
 
       <div className="animate-in flex-1 flex flex-col gap-20 opacity-0 max-w-4xl px-3">
-        {/* <main className="flex-1 flex flex-col gap-6">
+        <main className="flex-1 flex flex-col gap-6">
           <h2 className="font-bold text-4xl mb-4">Next steps</h2>
-          {isSupabaseConnected ? <SignUpUserSteps /> : <ConnectSupabaseSteps />}
-        </main> */}
+          <p>user: {user?.toString() ?? 'No user found'}</p>
+          <p>session: {session?.toString() ?? 'No session found'}</p>
+          {/* {isSupabaseConnected ? <SignUpUserSteps /> : <ConnectSupabaseSteps />} */}
+        </main>
         <div className='mt-6'>
           {/* <ReviewCarousel /> */}
-          <p className='mt-6'>
+          {/* <p className='mt-6'>
             Welcome to the Alliance Physical Therapy Partners intranet, a place
             where we stand united as one, Stronger Together. At the core of our
             mission lies a profound commitment to enhancing the lives of our
@@ -67,7 +84,7 @@ export default async function Index() {
             </span>{' '}
             We are more than a healthcare organization; we are a beacon of hope, a
             place of healing, and a testament to the incredible strength of unity.
-          </p>
+          </p> */}
           <h3 className='mt-6 mb-6 text-4xl font-bold font-universSubheading'>
             Departments
           </h3>

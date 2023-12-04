@@ -48,23 +48,23 @@ export default function Header() {
             <div className='px-4 py-3 lg:px-6'>
               <div
                 id='mega-menu-full-image'
-                className='items-center justify-between w-full pl-6 sm:hidden md:flex md:w-auto md:order-1'
+                className='place-items-center justify-between w-full pt-4 pl-6 sm:hidden md:flex md:w-auto md:order-1'
               >
-                <ul className='flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0'>
+                <ul className='flex flex-col font-medium md:flex-row md:space-x-8 md:mt-0 list-none'>
                   <li>
                     <a
                       href='/'
-                      className='block py-2 pl-3 pr-4 font-bold text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-200 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700'
+                      className='block py-2 pl-3 pr-4 font-bold text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-200 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700 no-underline'
                       aria-current='page'
                     >
                       Home
                     </a>
                   </li>
                   <li>
-                    <button
+                    <a
                       id='mega-menu-full-cta-image-button'
                       data-collapse-toggle='mega-menu-full-image-dropdown'
-                      className='flex items-center justify-between w-full py-2 pl-3 pr-4 font-bold text-white border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-100 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700'
+                      className='block py-2 pl-3 pr-4 font-bold text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-200 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700 no-underline'
                     >
                       Our Teams{' '}
                       <svg
@@ -82,12 +82,12 @@ export default function Header() {
                           d='m1 1 4 4 4-4'
                         />
                       </svg>
-                    </button>
+                    </a>
                   </li>
                   <li>
                     <a
                       href='/news'
-                      className='block py-2 pl-3 pr-4 font-bold text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-200 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700'
+                      className='block py-2 pl-3 pr-4 font-bold text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-200 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700 no-underline'
                     >
                       Company News
                     </a>
@@ -95,7 +95,7 @@ export default function Header() {
                   <li>
                     <a
                       href='/connect'
-                      className='block py-2 pl-3 pr-4 font-bold text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-200 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700'
+                      className='block py-2 pl-3 pr-4 font-bold text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-200 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700 no-underline'
                     >
                       Stay Connected
                     </a>
@@ -103,7 +103,7 @@ export default function Header() {
                   <li>
                     <a
                       href='/jobs'
-                      className='block py-2 pl-3 pr-4 font-bold text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-200 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700'
+                      className='block py-2 pl-3 pr-4 font-bold text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-200 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700 no-underline'
                     >
                       Open Jobs
                     </a>
