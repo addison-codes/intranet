@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
@@ -29,7 +31,7 @@ export default function AnnouncementForm() {
     handleSubmit,
     formState: { errors }
   } = useForm()
-  const router = useRouter()
+  // const router = useRouter()
 
   const createAnnouncement = async (data) => {
     setSubmittedHTML(message)
@@ -200,7 +202,7 @@ export default function AnnouncementForm() {
           </div>
         )}
 
-        <button
+        {/* <button
           className='px-4 py-2 mr-2 font-bold text-white bg-red-800 rounded hover:bg-red-900 focus:outline-none focus:shadow-outline'
           type='submit'
         >
@@ -210,7 +212,7 @@ export default function AnnouncementForm() {
           <a className='inline-block px-4 py-2 mt-3 font-bold text-white bg-red-800 rounded hover:bg-red-900 focus:outline-none focus:shadow-outline'>
             Cancel
           </a>
-        </Link>
+        </Link> */}
       </form>
     </div>
   )

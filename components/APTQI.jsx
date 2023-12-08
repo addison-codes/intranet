@@ -22,7 +22,7 @@ const APTQI = () => {
           tab
         />
       </div>
-      <div className='flex mt-6'>
+      <div className='flex justify-around mt-6'>
         <p className='italic'>
           Alliance Physical Therapy Partners is a proud member of the Alliance
           for Physical Therapy Quality and Innovation.{' '}
