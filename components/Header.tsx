@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Dropdown from "./Dropdown"
 
 export default function Header() {
   return (
@@ -6,15 +7,6 @@ export default function Header() {
       <header className={'flex flex-col w-full'}>
         <nav className='container order-1 px-4 mx-auto border-gray-200 lg:px-6 dark:bg-gray-900 dark:border-gray-800'>
           <div className='flex items-center justify-between'>
-            {/* <div className='flex items-center justify-start flex-shrink-0'>
-              <a href='/' className='flex mr-6'>
-                <img
-                  src='/aptp-logo.png'
-                  className='h-20 mr-3'
-                  alt='Alliance PTP Logo'
-                />
-              </a>
-            </div> */}
             {/* <Dropdown /> */}
 
             <div className='flex items-center justify-between flex-shrink-0 ml-4 sm:hidden lg:order-2'>
@@ -322,7 +314,7 @@ export default function Header() {
           </nav>
         </div>
         <div className="relative w-full h-64">
-          <Image src='/stronger-together.png' alt='Alliance PTP Logo' fill={true} objectFit="cover" />  
+          <Image src='/stronger-together.png' alt='Alliance PTP Logo' fill={true} />  
         </div>
       </header>
     </div>

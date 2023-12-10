@@ -1,3 +1,5 @@
+'use client'
+
 import { Carousel } from 'flowbite-react';
 import React from 'react';
 

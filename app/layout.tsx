@@ -2,9 +2,12 @@ import { GeistSans } from 'geist/font'
 import './globals.css'
 import Header from '@/components/Header'
 import APTQI from '@/components/APTQI'
-import AnnouncementSection from '@/components/AnnouncementSection'
+import ClinicOfMonth from '@/components/ClinicOfMonth'
 import Sidebar from '@/components/Sidebar'
-
+import SocialFeed from '@/components/SocialFeed'
+import DailyQuote from '@/components/DailyQuote'
+import Footer from '@/components/Footer'
+import ReviewCarousel from '@/components/Carousel'
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : 'http://localhost:3000'
@@ -31,9 +34,13 @@ export default function RootLayout({
         {/* <div className="mx-auto mt-6">
           <Image src={'/homepage-banner.png'}  width={1200} height={300} alt={'Homepage banner'} />
         </div> */}
-        <div className='container grid gap-8 pt-4 mx-auto md:grid-cols-4'>
-          {/* <AnnouncementSection /> */}
-          <div className='col-span-2 '>{children}</div>
+        <div className='container grid gap-8 pt-4 mx-auto md:grid-cols-5'>
+          <div className="flex flex-col">
+            <DailyQuote />
+            <SocialFeed />
+            <ClinicOfMonth />
+          </div>
+          <div className='col-span-3 '>{children}</div>
           <Sidebar />
         </div>
       </div>
@@ -41,6 +48,7 @@ export default function RootLayout({
         {/* <main className="flex flex-col items-center min-h-screen">
           {children}
         </main> */}
+        <Footer />
         <APTQI />
       </body>
     </html>

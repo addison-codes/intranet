@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const Sidebar = () => {
   return (
-    <div className='col-span-2 row-span-2 sm:col-span-1'>
+    <div className='col-span-1 row-span-1 sm:col-span-1'>
       <h2 className='mt-4 mb-4 text-6xl font-extrabold dark:text-white font-universHeading'><Image src={'/icons/intranet-icons_icon-quicklinks.png'} width={45} height={45} alt='quicklinks' /> Quick Links</h2>
       <p className='mb-4'>Useful 3rd Party Links</p>
       <div className="text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">

@@ -5,8 +5,8 @@ import DeptIcon from './DeptIcon'
 
 const APTQI = () => {
   return (
-    <div className='mt-12'>
-      <div className='flex justify-around py-8 bg-gray-200 rounded'>
+    <div className=''>
+      <div className='flex justify-around py-8 pt-16 bg-gray-200 rounded'>
         <DeptIcon
           name='Report a Compliance Concern'
           link='https://alliancephysicaltherapypartners.tfaforms.net/331'

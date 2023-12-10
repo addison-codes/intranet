@@ -1,36 +1,23 @@
-'use client'
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import AuthButtonClient from "../auth-button-client";
+import MsButton from "./ms-button";
 
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+export const dynamic = 'force-dynamic'
 
 
-export default function Login({
-  searchParams,
-}: {
-  searchParams: { message: string }
-}) {
-  const supabase = createClientComponentClient()
+export default async function Login() {
+  const supabase = createServerComponentClient<Database>({ cookies })
+  const { data: { session } } = await supabase.auth.getSession()
 
-  const signInWithAzure = async () => {
-
-    // const supabase = createClient()
-    const { data, error } = await supabase.auth.signInWithOAuth({
-      provider: 'azure',
-      options: {
-        scopes: 'email',
-      },
-    })
-
-    if (error) {
-      console.error('Error signing in:', error.message)
+    if (session) {
+      redirect('/')
     }
-  }
 
-
-  return (
-    <div className="flex flex-col justify-center flex-1 w-full gap-2 px-8 sm:max-w-md">
-      <button onClick={signInWithAzure} className="px-4 py-2 mb-2 bg-blue-500 rounded-md text-foreground">
-        Sign In with Azure
-      </button>
+    return (
+    <div className="flex items-center justify-center flex-1">
+      <MsButton />
     </div>
-  )
+    )
 }
