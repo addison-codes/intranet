@@ -13,7 +13,7 @@ const Calendar = () => {
   sandbox="allow-scripts allow-same-origin allow-top-navigation"
   scrolling="no"
   frameBorder={0}
-  height="600px"
+  height="515px"
   width="100%"
 />
 
