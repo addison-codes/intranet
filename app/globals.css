@@ -42,3 +42,8 @@ a {
   border: 0px;
   background-color: transparent;
 }
+
+.instagram-media {
+  max-width: 280px !important;
+  min-width: 0px !important;
+}

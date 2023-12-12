@@ -7,7 +7,7 @@ export const Footer = () => {
     <footer className='p-4 mt-10 shadow bg-aptpblue dark:bg-gray-900'>
       <div className='w-full max-w-screen-xl p-4 mx-auto md:py-8'>
         <div className="flex flex-row-reverse flex-wrap order-last">
-          <div className="w-1/2">
+          <div className="justify-around w-1/2">
             <div className="right-0 flex w-32">
             <Bug />
 
