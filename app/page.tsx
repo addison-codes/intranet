@@ -39,7 +39,7 @@ export default async function Index() {
 
       <div className="flex flex-col w-full px-3 opacity-0 animate-in">
         <main className="flex flex-col flex-1 gap-6 pt-8 mb-8">
-          {/* <h2 className="mb-4 text-4xl font-bold text-center">Welcome, {user?.toString() ?? 'APTP User'}!</h2> */}
+          <h2 className="mb-4 text-4xl font-bold text-center">Welcome, APTP User!</h2>
           <SearchNew />
           {/* <p>user: {user?.toString() ?? 'No user found'}</p>
           <p>session: {session?.toString() ?? 'No session found'}</p> */}

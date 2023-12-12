@@ -7,10 +7,15 @@ export const Footer = () => {
     <footer className='p-4 mt-10 shadow bg-aptpblue dark:bg-gray-900'>
       <div className='w-full max-w-screen-xl p-4 mx-auto md:py-8'>
         <div className="flex flex-row-reverse flex-wrap order-last">
-          <div className="w-32">
+          <div className="w-1/2">
+            <div className="right-0 flex w-32">
             <Bug />
+
+            </div>
           </div>
+          <div className="w-1/2">
             <Departments />
+          </div>
         </div>
         <hr className='my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8' />
         <div className='flex justify-between'>

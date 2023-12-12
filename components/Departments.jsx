@@ -4,10 +4,10 @@ import DeptIcon from './DeptIcon'
 const Departments = () => {
   return (
     <div>
-          <h3 className='mt-6 mb-6 text-4xl font-bold font-universSubheading'>
+          <h3 className='mt-6 mb-6 text-4xl font-bold text-center font-universSubheading'>
             Departments
           </h3>
-          <div className='flex flex-wrap items-stretch sm:gap-8 place-content-between'>
+          <div className='flex flex-wrap items-stretch sm:gap-4 place-content-between'>
             <DeptIcon
               name='Front Office Operations'
               link='02ddedf18c36408186e1e65e800ade10'
