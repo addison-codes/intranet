@@ -5,14 +5,14 @@ import Image from "next/image"
 export default function MsButton() {
   const supabase = createClientComponentClient<Database>()
   const handleSignIn = async () => {
-  await supabase.auth.signInWithOAuth({
+  console.log(await supabase.auth.signInWithOAuth({
     provider: 'azure',
     options: {
       scopes: 'email',
       redirectTo: `${location.origin}/auth/callback`
     }
   })
-}
+)}
 return (
   <button type="button" onClick={handleSignIn} className='p-8 hover:bg-gray-800 rounded-xl'>
     <h1 className="text-xl">Sign In</h1>

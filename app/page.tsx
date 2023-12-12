@@ -5,7 +5,7 @@ import SignUpUserSteps from '@/components/SignUpUserSteps'
 import { cookies } from 'next/headers'
 import DeptIcon from '@/components/DeptIcon'
 import ReviewCarousel from '@/components/Carousel'
-import CalendarSmall from '@/components/CalendarSmall'
+import Calendar from '@/components/Calendar'
 import { useEffect } from 'react'
 import AnnouncementSection from '@/components/AnnouncementSection'
 import SearchNew from '@/components/SearchNew'
@@ -19,6 +19,8 @@ export const dynamic = 'force-dynamic'
 export default async function Index() {
   const supabase = createServerComponentClient({ cookies })
   const { data: { session } } = await supabase.auth.getSession()
+
+  console.log(await supabase.auth.getSession())
 
   console.log('test', session)
 
@@ -35,8 +37,8 @@ export default async function Index() {
         </div>
       </nav> */}
 
-      <div className="flex flex-col flex-1 max-w-4xl gap-20 px-3 opacity-0 animate-in">
-        <main className="flex flex-col flex-1 gap-6">
+      <div className="flex flex-col w-full px-3 opacity-0 animate-in">
+        <main className="flex flex-col flex-1 gap-6 pt-8 mb-8">
           {/* <h2 className="mb-4 text-4xl font-bold text-center">Welcome, {user?.toString() ?? 'APTP User'}!</h2> */}
           <SearchNew />
           {/* <p>user: {user?.toString() ?? 'No user found'}</p>
@@ -44,8 +46,13 @@ export default async function Index() {
           {/* {isSupabaseConnected ? <SignUpUserSteps /> : <ConnectSupabaseSteps />} */}
         </main>
         <div className='flex flex-row'>
-        <AnnouncementSection />
-        <CalendarSmall />
+          <div className="w-1/2">
+            <AnnouncementSection />
+
+          </div>
+        <div className="w-1/2">
+          <Calendar />
+        </div>
         </div>
         <div className='mt-6'>
           <ReviewCarousel />

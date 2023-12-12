@@ -32,3 +32,13 @@
     transform: translateY(0);
   }
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.group {
+  border: 0px;
+  background-color: transparent;
+}

@@ -1,29 +1,30 @@
 /* eslint-disable react/no-unescaped-entities */
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import Image from 'next/image'
 import React from 'react'
+import { cookies } from 'next/headers';
 
-import useSWR from 'swr'
 
-const AnnouncementSection = () => {
-  const fetcher = (url, queryParams = '?limit=100') =>
-    fetch(`${url}${queryParams}`).then((res) => res.json())
-  // const { data } = useSWR('/api/announcements', fetcher)
+const AnnouncementSection = async () => {
+  const supabase = createServerComponentClient({ cookies })
+  const { data } = await supabase.from('announcements').select('*')
+  console.log(data)
 
   return (
-    <div className='col-span-2 mt-6 sm:col-span-1'>
-      <div className='relative w-full max-w-sm p-6 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 shadow-gray-50'>
-        <a href={`/news`}>
-          <h5 className='mb-4 text-4xl tracking-tight text-gray-900 drop-shadow-lg w-60 dark:text-white font-universSubheading'>
+    <div className='col-span-2 sm:col-span-1'>
+      <div className='relative w-full p-6 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 shadow-gray-50'>
+        <a className='flex justify-around' href={`/news`}>
+          <h5 className='mt-0 mb-4 text-4xl tracking-tight text-gray-900 drop-shadow-lg w-60 dark:text-white font-universSubheading'>
             <Image
               src={'/icons/intranet-icons_icon-announcements.png'}
               width={35}
               height={35}
               alt='announcements'
             />
-            <span className='ml-2'>News & Events</span>
+            <span className='ml-2 text-center'>News & Events</span>
           </h5>
         </a>
-        {/* <div className='flex flex-col gap-6'>
+        <div className='flex flex-col gap-6'>
           {data?.map((announcement) => (
             <a
               key={announcement.id}
@@ -54,7 +55,7 @@ const AnnouncementSection = () => {
               </div>
             </a>
           ))}
-        </div> */}
+        </div>
         {/* <a
           href={`/news`}
           className='bottom-[20px] mt-4 left-0 right-0 inline-flex items-center justify-center w-48 mx-auto px-3 py-2 text-sm font-medium text-center text-white bg-aptpblue rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-aptpblue dark:focus:ring-blue-800 font'

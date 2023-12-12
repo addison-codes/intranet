@@ -7,7 +7,7 @@ import { useState } from "react";
 import PreviewRenderer from "@/components/PreviewRenderer";
 // important that we use dynamic loading here
 // editorjs should only be rendered on the client side.
-const Editor = dynamic(() => import("../../components/Editor"), {
+const Editor = dynamic(() => import("../components/Editor"), {
     ssr: false,
 });
 
@@ -15,8 +15,9 @@ export default function EditorPage() {
     //state to hold output data. we'll use this for rendering later
     const [data, setData] = useState();
     return (
-        <div className="grid grid-cols-2 gap-2 m-2">
-            <div className="col-span-1">
+        <div className="grid grid-rows-2 gap-2 m-2">
+            {/* <NewPage /> */}
+            <div className="row-span-1">
                 <h1>Editor</h1>
                 <div className="border rounded-md">
                     <Editor
@@ -26,7 +27,7 @@ export default function EditorPage() {
                     />
                 </div>
             </div>
-            <div className="col-span-1">
+            <div className="row-span-1">
                 <h1>Preview</h1>
                 <div className="border rounded-md">
                     <div className="p-16">{data && <PreviewRenderer data={data} />}</div>
