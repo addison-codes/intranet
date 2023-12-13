@@ -56,8 +56,10 @@ export default function Header() {
                   </li>
                   <li>
                     <a
-                      id='mega-menu-full-cta-image-button'
-                      data-collapse-toggle='mega-menu-full-image-dropdown'
+                      id='dropdownHoverButton'
+                      // data-collapse-toggle='mega-menu-full-image-dropdown'
+                      data-dropdown-toggle="dropdownHover"
+                      data-dropdown-trigger="hover"
                       className='block py-2 pl-3 pr-4 font-bold text-white no-underline border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-200 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700'
                     >
                       Our Teams{' '}
@@ -132,7 +134,7 @@ export default function Header() {
               </div>
             </div>
             <div
-              id='mega-menu-full-image-dropdown'
+              id='dropdownHover'
               className='absolute z-40 hidden w-full mt-1 -ml-20 transition-all bg-white border-gray-200 shadow-sm border-y dark:bg-gray-800 dark:border-gray-600'
             >
               <div className='grid justify-around px-4 py-5 mx-auto text-sm text-gray-500 dark:text-gray-400 md:grid-cols-2 md:px-6'>
@@ -313,7 +315,7 @@ export default function Header() {
             </div>
           </nav>
         </div>
-        <div className="relative w-full h-64">
+        <div className="relative hidden w-full h-48 sm:block">
           <Image priority src='/stronger-together.png' alt='Alliance PTP Logo' fill={true} />  
         </div>
       </header>

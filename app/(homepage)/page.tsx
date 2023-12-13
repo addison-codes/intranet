@@ -40,45 +40,16 @@ export default async function Index() {
           <p>session: {session?.toString() ?? 'No session found'}</p> */}
           {/* {isSupabaseConnected ? <SignUpUserSteps /> : <ConnectSupabaseSteps />} */}
         </main>
-        <div className='flex flex-row'>
-          <div className="w-1/2">
+        <div className='flex flex-wrap sm:flex-row'>
+          <div className="w-full sm:w-1/2">
             <AnnouncementSection />
           </div>
-        <div className="w-1/2">
+        <div className="w-full sm:w-1/2">
           <Calendar />
         </div>
         </div>
         <div className='mt-6'>
           <ReviewCarousel />
-          {/* <p className='mt-6'>
-            Welcome to the Alliance Physical Therapy Partners intranet, a place
-            where we stand united as one, Stronger Together. At the core of our
-            mission lies a profound commitment to enhancing the lives of our
-            patients and partners with unwavering care and compassion. This intranet
-            serves as a digital sanctuary, nurturing our values{' '}
-            <span className='font-bold'>
-              of putting people first, leading with integrity, treating with
-              boundless compassion, and building lasting relationships.
-            </span>
-            <br />
-            <br />
-            Here, we celebrate the incredible impact of every individual in our
-            organization. Our collective strength lies in our unity, diverse
-            expertise, and shared dedication to making a positive difference. As we
-            navigate this platform, we create a tapestry of knowledge,
-            collaboration, and innovation that propels us forward on our journey.
-            This intranet embodies our belief in the power of connection and
-            empathy, enabling us to provide the highest quality of care to those who
-            entrust us with their well-being.
-            <br />
-            <br />
-            As we grow and evolve, let us remember that{' '}
-            <span className='font-bold'>
-              our actions today shape the future of healthcare tomorrow.
-            </span>{' '}
-            We are more than a healthcare organization; we are a beacon of hope, a
-            place of healing, and a testament to the incredible strength of unity.
-          </p> */}
         </div>
 
       </div>

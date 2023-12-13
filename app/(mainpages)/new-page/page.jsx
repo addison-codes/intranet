@@ -1,5 +1,5 @@
-import EditorPage from "../editor-instance";
-import NewPage from "../new-page";
+import EditorPage from "../../editor-instance";
+import NewPage from "../../new-page";
 
 export default function NewPagePage() {
   return (

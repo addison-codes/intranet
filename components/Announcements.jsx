@@ -5,13 +5,11 @@ import { cookies } from 'next/headers';
 
 
 
-// import { useSession } from 'next-auth/react';
-import useSWR from 'swr';
+
 
 
 const Announcements = async () => {
-  // const { data: session } = useSession()
-  // const [selectedTab, setSelectedTab] = useState('All')
+
 
   const supabase = createServerComponentClient({ cookies })
   const { data } = await supabase.from('announcements').select('*')
@@ -26,14 +24,6 @@ const Announcements = async () => {
     return e.type === 'announcement'
   })
 
-
-  // Filter announcements based on selectedTab
-  // const filteredAnnouncements =
-  // selectedTab === 'All'
-  //   ? data || []
-  //   : (data || []).filter(
-  //       (announcement) => announcement.type === selectedTab
-  //     )
   return (
     <div className='mt-4'>
       {/* {session?.user?.name ===
@@ -57,14 +47,13 @@ const Announcements = async () => {
         ''
       )} */}
       <div className='container flex flex-wrap gap-8 md:flex-nowrap'>
-        <div className='relative w-full max-w-lg transition-all bg-white border border-gray-200 rounded shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105'>
+        <div className='relative w-full max-w-sm transition-all bg-white border border-gray-200 rounded shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105'>
           <a href={`/announcements/${newsletter?.id}`}>
             <Image
               src={'/aoa.png'}
               alt='Aligning Our Alliance'
               width={400}
               height={200}
-              objectFit='cover'
             />
             <div className='p-6'>
               <p className='pb-2 text-sm text-gray-400'>{newsletter?.date?.split(' ')[0]}</p>
@@ -96,14 +85,13 @@ const Announcements = async () => {
             </div>
           </a>
         </div>
-        <div className='relative w-full max-w-lg transition-all bg-white border border-gray-200 rounded shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105'>
+        <div className='relative w-full max-w-sm transition-all bg-white border border-gray-200 rounded shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105'>
           <a href={`/announcements/${ceo?.id}`}>
             <Image
               src={'/ceo-desk.png'}
               alt='From the CEOs Desk'
               width={400}
               height={200}
-              objectFit='cover'
             />
             <div className='p-6'>
               <p className='pb-2 text-sm text-gray-400'>{ceo?.date?.split(' ')[0]}</p>
@@ -135,7 +123,7 @@ const Announcements = async () => {
             </div>
           </a>
         </div>
-        <div className='relative w-full max-w-lg transition-all bg-white border border-gray-200 rounded shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105'>
+        <div className='relative w-full max-w-sm transition-all bg-white border border-gray-200 rounded shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105'>
           <a href={`/announcements/${latest?.id}`}>
             <Image
               src={latest?.image ? latest?.image : '/generic-announcement.png'}

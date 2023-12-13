@@ -2,19 +2,10 @@ import { GeistSans } from 'geist/font'
 import '../globals.css'
 import Header from '@/components/Header'
 import APTQI from '@/components/APTQI'
-import ClinicOfMonth from '@/components/ClinicOfMonth'
-import Sidebar from '@/components/Sidebar'
-import SocialFeed from '@/components/SocialFeed'
-import DailyQuote from '@/components/DailyQuote'
 import Footer from '@/components/Footer'
-import ReviewCarousel from '@/components/Carousel'
-
-const defaultUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : 'http://localhost:3000'
+import Script from 'next/script'
 
 export const metadata = {
-  metadataBase: new URL(defaultUrl),
   title: 'Alliance PTP Intranet',
   description: 'Intranet for communication and collaboration within Alliance PTP',
 }
@@ -35,6 +26,10 @@ export default function RootLayout({
       </div>
         <Footer />
         <APTQI />
+        <Script
+          src='https://unpkg.com/flowbite@2.2.0/dist/flowbite.js'
+          strategy='beforeInteractive'
+        />
       </body>
     </html>
   )
