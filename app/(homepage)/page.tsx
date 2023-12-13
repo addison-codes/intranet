@@ -1,4 +1,4 @@
-import AuthButton from '../components/AuthButton'
+import AuthButton from '../../components/AuthButton'
 import { createClient } from '@/utils/supabase/server'
 import ConnectSupabaseSteps from '@/components/ConnectSupabaseSteps'
 import SignUpUserSteps from '@/components/SignUpUserSteps'
@@ -20,10 +20,6 @@ export default async function Index() {
   const supabase = createServerComponentClient({ cookies })
   const { data: { session } } = await supabase.auth.getSession()
 
-  console.log(await supabase.auth.getSession())
-
-  console.log('test', session)
-
   // if (!session) {
   //   redirect('/login')
   // }
@@ -36,10 +32,9 @@ export default async function Index() {
           {isSupabaseConnected && <AuthButton />}
         </div>
       </nav> */}
-
       <div className="flex flex-col w-full px-3 opacity-0 animate-in">
-        <main className="flex flex-col flex-1 gap-6 pt-8 mb-8">
-          <h2 className="mb-4 text-4xl font-bold text-center">Welcome, APTP User!</h2>
+        <main className="flex flex-col flex-1 gap-6 mb-8">
+          <h2 className="mb-4 text-6xl font-bold text-center font-universHeading">Welcome, APTP User!</h2>
           <SearchNew />
           {/* <p>user: {user?.toString() ?? 'No user found'}</p>
           <p>session: {session?.toString() ?? 'No session found'}</p> */}
@@ -48,7 +43,6 @@ export default async function Index() {
         <div className='flex flex-row'>
           <div className="w-1/2">
             <AnnouncementSection />
-
           </div>
         <div className="w-1/2">
           <Calendar />

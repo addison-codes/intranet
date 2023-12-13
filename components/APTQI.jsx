@@ -6,7 +6,7 @@ import DeptIcon from './DeptIcon'
 const APTQI = () => {
   return (
     <div className=''>
-      <div className='flex justify-around py-8 pt-16 bg-gray-200 rounded'>
+      <div className='flex justify-around py-8 pt-16 rounded bg-aptpgrey'>
         <DeptIcon
           name='Report a Compliance Concern'
           link='https://alliancephysicaltherapypartners.tfaforms.net/331'
@@ -22,7 +22,7 @@ const APTQI = () => {
           tab
         />
       </div>
-      <div className='flex justify-around mt-6'>
+      <div className='flex justify-around mt-6 mb-6'>
         <p className='italic'>
           Alliance Physical Therapy Partners is a proud member of the Alliance
           for Physical Therapy Quality and Innovation.{' '}

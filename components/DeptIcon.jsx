@@ -20,7 +20,7 @@ const DeptIcon = ({ name, link, image, width, tab }) => {
           alt={name}
         />
       </div>
-      <h4 className='my-0 text-lg font-bold text-center text-black no-underline'>{name}</h4>
+      <h4 className='my-0 text-lg font-bold text-center text-white no-underline'>{name}</h4>
     </a>
   );
 };

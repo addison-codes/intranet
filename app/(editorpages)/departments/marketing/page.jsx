@@ -8,7 +8,6 @@ export default async function Page() {
   const supabase = createClient(cookieStore)
   const { data } = await supabase.from('blocks').select()
 
-  console.log('test', data);
 
   return (
   <div className="">

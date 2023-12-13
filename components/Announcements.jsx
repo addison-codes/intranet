@@ -1,19 +1,20 @@
 import Image from 'next/image';
 import React from 'react';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 
 
 
-import { useSession } from 'next-auth/react';
+// import { useSession } from 'next-auth/react';
 import useSWR from 'swr';
 
 
-const Announcements = () => {
-  const { data: session } = useSession()
+const Announcements = async () => {
+  // const { data: session } = useSession()
   // const [selectedTab, setSelectedTab] = useState('All')
 
-  const fetcher = (url, queryParams = '?limit=100') =>
-    fetch(`${url}${queryParams}`).then((res) => res.json())
-  const { data } = useSWR('/api/announcements', fetcher)
+  const supabase = createServerComponentClient({ cookies })
+  const { data } = await supabase.from('announcements').select('*')
 
   const newsletter = data?.find((e) => {
     return e.type === 'newsletter'
@@ -25,7 +26,6 @@ const Announcements = () => {
     return e.type === 'announcement'
   })
 
-  console.log(session)
 
   // Filter announcements based on selectedTab
   // const filteredAnnouncements =
@@ -36,7 +36,7 @@ const Announcements = () => {
   //     )
   return (
     <div className='mt-4'>
-      {session?.user?.name ===
+      {/* {session?.user?.name ===
       ('Addison Wanlass' ||
         'Samantha Lewakowski' ||
         'Richard Leaver' ||
@@ -55,7 +55,7 @@ const Announcements = () => {
         </button>
       ) : (
         ''
-      )}
+      )} */}
       <div className='container flex flex-wrap gap-8 md:flex-nowrap'>
         <div className='relative w-full max-w-lg transition-all bg-white border border-gray-200 rounded shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105'>
           <a href={`/announcements/${newsletter?.id}`}>

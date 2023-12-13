@@ -4,7 +4,7 @@ import DeptIcon from './DeptIcon'
 const Departments = () => {
   return (
     <div>
-          <h3 className='mt-6 mb-6 text-4xl font-bold text-center font-universSubheading'>
+          <h3 className='mt-6 mb-6 text-6xl font-bold text-center text-white font-universSubheading'>
             Departments
           </h3>
           <div className='flex flex-wrap items-stretch sm:gap-4 place-content-between'>

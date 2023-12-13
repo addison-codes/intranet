@@ -1,18 +1,22 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from 'react'
-
-import useSWR from 'swr'
+'use client'
+import React, { useEffect, useState } from 'react'
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 
 const PreviousAnnouncements = () => {
   const [selectedType, setSelectedType] = useState(null)
+  const [announcements, setAnnouncements] = useState([])
 
-  const fetcher = (
-    url,
-    queryParams = selectedType
-      ? `?type=${selectedType}&limit=100`
-      : '?limit=100'
-  ) => fetch(`${url}${queryParams}`).then((res) => res.json())
-  const { data } = useSWR(`/api/announcements`, fetcher)
+  const getAnnouncements = async () => {
+    const supabase = createClientComponentClient()
+    const { data } = await supabase.from('announcements').select('*')  
+    setAnnouncements(data)
+  }
+
+  const data = announcements
+  useEffect(() => {
+    getAnnouncements()
+  }, [])
 
   return (
     <div className='col-span-1 mt-6'>
@@ -88,6 +92,7 @@ const PreviousAnnouncements = () => {
                 </a>
               )
           )}
+          
         </div>
       </div>
     </div>

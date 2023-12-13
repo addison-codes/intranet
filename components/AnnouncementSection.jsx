@@ -8,7 +8,6 @@ import { cookies } from 'next/headers';
 const AnnouncementSection = async () => {
   const supabase = createServerComponentClient({ cookies })
   const { data } = await supabase.from('announcements').select('*')
-  console.log(data)
 
   return (
     <div className='col-span-2 sm:col-span-1'>

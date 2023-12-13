@@ -27,7 +27,6 @@ export default function Editor({ data, onChange, holder }) {
         data,
         async onChange(api, event) {
           const data = await api.saver.save();
-          console.log(data);
           const { error } = await supabase
             .from('blocks')
             .insert({ id: data.blocks.id, content: data.blocks.data });
@@ -46,5 +45,5 @@ export default function Editor({ data, onChange, holder }) {
   }, []);
 
 
-  return <div id={holder} className="prose max-w-full" />;
+  return <div id={holder} className="max-w-full prose" />;
 };

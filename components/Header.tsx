@@ -314,7 +314,7 @@ export default function Header() {
           </nav>
         </div>
         <div className="relative w-full h-64">
-          <Image src='/stronger-together.png' alt='Alliance PTP Logo' fill={true} />  
+          <Image priority src='/stronger-together.png' alt='Alliance PTP Logo' fill={true} />  
         </div>
       </header>
     </div>
