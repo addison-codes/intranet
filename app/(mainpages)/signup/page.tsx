@@ -5,6 +5,9 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 
+export const dynamic = 'force-dynamic'
+
+
 export default function Login({
   searchParams,
 }: {

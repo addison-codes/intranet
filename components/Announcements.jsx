@@ -4,25 +4,24 @@ import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 
 
-
-
+export const dynamic = 'force-dynamic';
 
 
 const Announcements = async () => {
 
 
-  const supabase = createServerComponentClient({ cookies })
-  const { data } = await supabase.from('announcements').select('*')
+  const supabase = createServerComponentClient({ cookies });
+  const { data } = await supabase.from('announcements').select('*');
 
   const newsletter = data?.find((e) => {
-    return e.type === 'newsletter'
-  })
+    return e.type === 'newsletter';
+  });
   const ceo = data?.find((e) => {
-    return e.type === 'ceo'
-  })
+    return e.type === 'ceo';
+  });
   const latest = data?.find((e) => {
-    return e.type === 'announcement'
-  })
+    return e.type === 'announcement';
+  });
 
   return (
     <div className='mt-4'>
@@ -164,7 +163,7 @@ const Announcements = async () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Announcements
+export default Announcements;

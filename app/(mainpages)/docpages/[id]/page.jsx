@@ -1,17 +1,20 @@
-import Head from 'next/head'
+import Head from 'next/head';
 import Image from 'next/image';
-import React from 'react'
+import React from 'react';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 
+export const dynamic = 'force-dynamic';
+
+
 
 const Pages = async ({ params }) => {
-  const supabase = createServerComponentClient({ cookies })
-  const { data } = await supabase.from('pages').select().eq('id', params.id)
-  const page = data[0]
+  const supabase = createServerComponentClient({ cookies });
+  const { data } = await supabase.from('pages').select().eq('id', params.id);
+  const page = data[0];
 
   if (!page) {
-    return <div>Loading</div>
+    return <div>Loading</div>;
   }
 
   return (
@@ -66,7 +69,7 @@ const Pages = async ({ params }) => {
         )} */}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Pages
+export default Pages;

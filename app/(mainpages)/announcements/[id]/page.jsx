@@ -1,19 +1,22 @@
-import Head from 'next/head'
+import Head from 'next/head';
 import Image from 'next/image';
-import React from 'react'
+import React from 'react';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 
+export const dynamic = 'force-dynamic';
+
+
 
 const Announcement = async ({ params }) => {
-  const supabase = createServerComponentClient({ cookies })
-  const { data } = await supabase.from('announcements').select().eq('id', params.id)
-  const announcement = data[0]
+  const supabase = createServerComponentClient({ cookies });
+  const { data } = await supabase.from('announcements').select().eq('id', params.id);
+  const announcement = data[0];
 
-  console.log(announcement)
+  console.log(announcement);
 
   if (!announcement) {
-    return <div>Loading</div>
+    return <div>Loading</div>;
   }
 
   const style = {
@@ -71,7 +74,7 @@ const Announcement = async ({ params }) => {
     },
 
     'a:hover': { textDecoration: 'none !important' }
-  }
+  };
 
   return (
     <div>
@@ -128,7 +131,7 @@ const Announcement = async ({ params }) => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Announcement
+export default Announcement;

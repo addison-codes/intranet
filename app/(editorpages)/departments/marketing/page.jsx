@@ -1,19 +1,22 @@
-import { createClient } from '@/utils/supabase/server'
-import { cookies } from 'next/headers'
-import PreviewRenderer from '@/components/PreviewRenderer'
+import { createClient } from '@/utils/supabase/server';
+import { cookies } from 'next/headers';
+import PreviewRenderer from '@/components/PreviewRenderer';
 import NewPage from '@/app/new-page';
 
+export const dynamic = 'force-dynamic';
+
+
 export default async function Page() {
-  const cookieStore = cookies()
-  const supabase = createClient(cookieStore)
-  const { data } = await supabase.from('blocks').select()
+  const cookieStore = cookies();
+  const supabase = createClient(cookieStore);
+  const { data } = await supabase.from('blocks').select();
 
 
   return (
-  <div className="">
-    <NewPage />
-    <div className="p-16">{data && <PreviewRenderer data={data[0].content} />}</div>
-  </div>
-  )
+    <div className="">
+      <NewPage />
+      <div className="p-16">{data && <PreviewRenderer data={data[0].content} />}</div>
+    </div>
+  );
 
 }

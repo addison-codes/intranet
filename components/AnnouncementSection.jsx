@@ -1,13 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
+import React from 'react';
 import { cookies } from 'next/headers';
+
+export const dynamic = 'force-dynamic';
+
 
 
 const AnnouncementSection = async () => {
-  const supabase = createServerComponentClient({ cookies })
-  const { data } = await supabase.from('announcements').select('*')
+  const supabase = createServerComponentClient({ cookies });
+  const { data } = await supabase.from('announcements').select('*');
 
   return (
     <div className='col-span-2 sm:col-span-1'>
@@ -37,10 +40,10 @@ const AnnouncementSection = async () => {
                     backgroundImage: announcement.image
                       ? `url(${announcement.image})`
                       : announcement.type === 'ceo'
-                      ? `url('/favicon.png')`
-                      : announcement.type === 'newsletter'
-                      ? `url('/icons/intranet-icons_icon-newsletter.png')`
-                      : `url('/icons/intranet-icons_icon-announcements.png')`
+                        ? `url('/favicon.png')`
+                        : announcement.type === 'newsletter'
+                          ? `url('/icons/intranet-icons_icon-newsletter.png')`
+                          : `url('/icons/intranet-icons_icon-announcements.png')`
                   }}
                 ></div>
                 <div className='flex flex-col gap-2 grow-0'>
@@ -78,7 +81,7 @@ const AnnouncementSection = async () => {
         </a> */}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AnnouncementSection
+export default AnnouncementSection;
