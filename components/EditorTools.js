@@ -10,8 +10,19 @@ import Quote from "@editorjs/quote";
 import SimpleImage from "@editorjs/simple-image";
 import Paragraph from "@editorjs/paragraph";
 import Header from "@editorjs/header"
+import AttachesTool from "@editorjs/attaches";
+import TextVariantTune from "@editorjs/text-variant-tune"
+import Table from "@editorjs/table"
+import Underline from '@editorjs/underline';
+
 
 export const EDITOR_TOOLS = {
+  attaches: {
+    class: AttachesTool,
+      config: {
+        endpoint: 'http://localhost:3000/uploadFile'
+      }
+  },
   code: Code,
   header: {
       class: Header,
@@ -24,11 +35,14 @@ export const EDITOR_TOOLS = {
   paragraph: Paragraph,
   checklist: CheckList,
   embed: Embed,
+  underline: Underline,
   image: Image,
   inlineCode: InlineCode,
   link: Link,
+  table: Table,
   list: List,
   quote: Quote,
   simpleImage: SimpleImage,
-  delimiter: Delimiter
+  delimiter: Delimiter,
+  textVariant: TextVariantTune
 };

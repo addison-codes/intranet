@@ -15,7 +15,7 @@ export default function EditorPage() {
     //state to hold output data. we'll use this for rendering later
     const [data, setData] = useState();
     return (
-        <div className="grid grid-rows-2 gap-2 m-2">
+        <div className="grid w-full grid-rows-2 gap-2 m-2">
             {/* <NewPage /> */}
             <div className="row-span-1">
                 <h1>Editor</h1>

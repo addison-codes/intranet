@@ -3,10 +3,9 @@ import NewPage from "../../new-page";
 
 export default function NewPagePage() {
   return (
-    <div>
+    <div className="container mx-auto my-12 border border-gray-800 sm:w-1/2">
     <h1 className="text-xl">What is the name of your page?</h1>
         <NewPage />
-        {/* <EditorPage /> */}
     </div>
   )
 }

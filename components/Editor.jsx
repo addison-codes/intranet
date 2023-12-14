@@ -24,13 +24,15 @@ export default function Editor({ data, onChange, holder }) {
       const editor = new EditorJS({
         holder: holder,
         tools: EDITOR_TOOLS,
+        tunes: ["textVariant"],
         data,
         async onChange(api, event) {
           const data = await api.saver.save();
-          const { error } = await supabase
-            .from('blocks')
-            .insert({ id: data.blocks.id, content: data.blocks.data });
-          onChange(data);
+          console.log(data)
+          // const { error } = await supabase
+          //   .from('blocks')
+          //   .insert({ id: data.blocks.id, content: data.blocks.data });
+          // onChange(data);
         },
       });
       ref.current = editor;
