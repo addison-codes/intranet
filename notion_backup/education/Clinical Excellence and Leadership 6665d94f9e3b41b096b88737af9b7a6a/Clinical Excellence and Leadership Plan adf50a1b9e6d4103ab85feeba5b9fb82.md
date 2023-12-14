@@ -1,0 +1,7 @@
+# Clinical Excellence and Leadership Plan
+
+***Alliance Physical Therapy Partners support continuing educational competence, lifelong learning, and ongoing professional development of employees.***
+
+The Clinical Excellence and Leadership Program (CELP) has been developed to promote a work culture that values knowledge and professional growth. ****The CELP will assess company-wide clinical education and leadership/mentorship needs in collaboration with our Partners to drive training initiatives and identify suitable training solutions for our clinicians. We want to focus our Clinical Excellence and Leadership Program based not solely on continuing education, but on a model of continuing competence, which is supported in the literature and by The Federation of State Boards of Physical Therapy (FSBPT). There are many ways to maintain and acquire skills that are as effective, if not more effective than attending a continuing education course, such as residencies/fellowships, mentorships, exams/assessments, structured interactive activities (group discussion), research, clinical instructorship, and self study.  We will be growing this program based on these varied means of promoting clinical excellence and leadership skills.
+
+![28b2699c-e5f0-4d26-8959-c408ea129b69.png](Clinical%20Excellence%20and%20Leadership%20Plan%20adf50a1b9e6d4103ab85feeba5b9fb82/28b2699c-e5f0-4d26-8959-c408ea129b69.png)

@@ -1,0 +1,3 @@
+# Clinical Physical Therapy Abbreviations
+
+[Clinical Physical Therapy Abbreviations.pdf](Clinical%20Physical%20Therapy%20Abbreviations%2047eda99eec2d4e1b8f6ed1b54310c253/Clinical_Physical_Therapy_Abbreviations.pdf)
