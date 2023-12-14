@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -20,26 +20,26 @@ import { useForm } from 'react-hook-form';
 // })
 
 
-export default function AnnouncementForm() {
+function AnnouncementForm() {
   // const [value, setValue] = useState([])
   // const [imageFile, setImageFile] = useState(null)
-  const [submittedHTML, setSubmittedHTML] = useState('')
-  const [newsletter, setNewsletter] = useState(false)
+  const [submittedHTML, setSubmittedHTML] = useState('');
+  const [newsletter, setNewsletter] = useState(false);
 
   const {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm()
+  } = useForm();
   // const router = useRouter()
 
   const createAnnouncement = async (data) => {
-    setSubmittedHTML(message)
+    setSubmittedHTML(message);
 
-    const message = submittedHTML
-    const date = new Date().toLocaleString().replace(',', '')
+    const message = submittedHTML;
+    const date = new Date().toLocaleString().replace(',', '');
 
-    const { title, image, type } = data
+    const { title, image, type } = data;
 
     try {
       await fetch('/api/createAnnouncement', {
@@ -54,16 +54,16 @@ export default function AnnouncementForm() {
         headers: {
           'Content-Type': 'application/json'
         }
-      })
-      router.reload()
+      });
+      router.reload();
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
-  }
+  };
 
   const onSelect = (e) => {
-    e.target.value === 'newsletter' ? setNewsletter(true) : setNewsletter(false)
-  }
+    e.target.value === 'newsletter' ? setNewsletter(true) : setNewsletter(false);
+  };
 
   return (
     <div className='w-full'>
@@ -151,18 +151,18 @@ export default function AnnouncementForm() {
         ) : (
           <div className='mb-4'>
             <div className='mb-4'>
-                        <label className='block mb-1 text-sm font-bold text-red-800'>
-              Title
-            </label>
-            <input
-              {...register('title', { required: 'Title is required' })}
-              aria-invalid={errors.title ? 'true' : 'false'}
-              type='text'
-              className='w-full px-3 py-2 text-gray-700 bg-white border rounded outline-none'
-            />
-            {errors.title && (
-              <p className='font-bold text-red-900'>{errors.title?.message}</p>
-            )}
+              <label className='block mb-1 text-sm font-bold text-red-800'>
+                Title
+              </label>
+              <input
+                {...register('title', { required: 'Title is required' })}
+                aria-invalid={errors.title ? 'true' : 'false'}
+                type='text'
+                className='w-full px-3 py-2 text-gray-700 bg-white border rounded outline-none'
+              />
+              {errors.title && (
+                <p className='font-bold text-red-900'>{errors.title?.message}</p>
+              )}
 
               <label
                 htmlFor='message'
@@ -215,5 +215,7 @@ export default function AnnouncementForm() {
         </Link> */}
       </form>
     </div>
-  )
+  );
 }
+
+export default AnnouncementForm;

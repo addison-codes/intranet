@@ -5,7 +5,7 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import Image from 'next/image'
 type Profiles = Database['public']['Tables']['profiles']['Row']
 
-export default function Avatar({
+function Avatar({
   uid,
   url,
   size,
@@ -97,3 +97,5 @@ export default function Avatar({
     </div>
   )
 }
+
+export default Avatar

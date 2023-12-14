@@ -14,7 +14,7 @@ import { redirect } from 'next/navigation'
 export const dynamic = 'force-dynamic'
 
 
-export default async function Index() {
+const Index = async () => {
   const supabase = createServerComponentClient({ cookies })
   const { data: { session } } = await supabase.auth.getSession()
 
@@ -54,3 +54,5 @@ export default async function Index() {
     </div>
   )
 }
+
+export default Index

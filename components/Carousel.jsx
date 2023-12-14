@@ -1,9 +1,9 @@
-'use client'
+'use client';
 
 import { Carousel } from 'flowbite-react';
 import React from 'react';
 
-export default function ReviewCarousel() {
+function ReviewCarousel() {
   return (
     <div className="h-56">
       <Carousel pauseOnHover slideInterval={4000}>
@@ -17,3 +17,5 @@ export default function ReviewCarousel() {
     </div>
   );
 }
+
+export default ReviewCarousel;

@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react'
 // import { Database } from '../database.types'
 import { Session, createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 
-export default function AccountForm({ session }: { session: Session | null }) {
+function AccountForm({ session }: { session: Session | null }) {
   const supabase = createClientComponentClient()
   const [loading, setLoading] = useState(true)
   const [fullname, setFullname] = useState<string | null>(null)
@@ -127,3 +127,5 @@ export default function AccountForm({ session }: { session: Session | null }) {
     </div>
   )
 }
+
+export default AccountForm
