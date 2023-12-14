@@ -3,6 +3,9 @@ import React from 'react'
 
 import Calendar from '@/components/Calendar'
 
+export const dynamic = 'force-dynamic'
+
+
 const connect = () => {
   return (
     <div className='container'>

@@ -1,7 +1,5 @@
 import AuthButton from '../../components/AuthButton'
 import { createClient } from '@/utils/supabase/server'
-import ConnectSupabaseSteps from '@/components/ConnectSupabaseSteps'
-import SignUpUserSteps from '@/components/SignUpUserSteps'
 import { cookies } from 'next/headers'
 import DeptIcon from '@/components/DeptIcon'
 import ReviewCarousel from '@/components/Carousel'
@@ -44,9 +42,9 @@ export default async function Index() {
           <div className="w-full sm:w-1/2">
             <AnnouncementSection />
           </div>
-        <div className="w-full sm:w-1/2">
-          <Calendar />
-        </div>
+          <div className="w-full sm:w-1/2">
+            <Calendar />
+          </div>
         </div>
         <div className='mt-6'>
           <ReviewCarousel />

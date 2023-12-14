@@ -1,9 +1,8 @@
 import React from 'react';
-
-
-
 import Announcements from '@/components/Announcements'
 import PreviousAnnouncements from '@/components/PreviousAnnouncements'
+
+export const dynamic = 'force-dynamic'
 
 const news = () => {
   return (

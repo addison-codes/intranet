@@ -1,6 +1,7 @@
 import React from 'react';
-import AnnouncementForm from '@/components/AnnoucementForm'
+import AnnouncementForm from '@/components/AnnoucementForm';
 
+export const dynamic = 'force-dynamic';
 
 export default async function Announcements() {
 
