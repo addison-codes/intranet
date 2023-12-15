@@ -1,15 +1,9 @@
-import AuthButton from '../../components/AuthButton'
-import { createClient } from '@/utils/supabase/server'
 import { cookies } from 'next/headers'
-import DeptIcon from '@/components/DeptIcon'
 import ReviewCarousel from '@/components/Carousel'
 import Calendar from '@/components/Calendar'
-import { useEffect } from 'react'
 import AnnouncementSection from '@/components/AnnouncementSection'
 import SearchNew from '@/components/SearchNew'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { redirect } from 'next/navigation'
-
 
 export const dynamic = 'force-dynamic'
 

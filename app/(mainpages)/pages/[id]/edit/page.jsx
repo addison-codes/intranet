@@ -3,7 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
-import EditorPage from '@/app/editor-instance';
+import EditorPage from '@/app/editor-edit-instance';
 
 export const dynamic = 'force-dynamic';
 
@@ -13,9 +13,25 @@ const Pages = async ({ params }) => {
   const { data } = await supabase.from('pages').select().eq('id', params.id);
   const page = data[0];
 
+  const addToPage = async (formData) => {
+    'use server';
+    const title = String(formData.get('title'));
+    const departments = Number(formData.get('departments'));
+    const document = Boolean((formData.get('document') == null ? false : true));
+    const supabase = createServerActionClient < Database > ({ cookies });
+    const { data } = await supabase.from('pages').insert({ title, departments, document }).select();
+    console.log(data);
+    if (data) {
+      redirect(`/pages/${data[0].id}`);
+    }
+  };
+
+
   if (!page) {
     return <div>Loading</div>;
   }
+
+  console.log('page.blocks', page.blocks);
 
   return (
     <div>
@@ -34,9 +50,9 @@ const Pages = async ({ params }) => {
           {page?.author
             ? `<p className='text-gray-400'>From: ${page?.author}</p>`
             : ''} */}
-
+          {/* TODO: Need to get the initial page blocks sent to the editor */}
         </div>
-        <EditorPage />
+        <EditorPage id={params.id} initBlocks={page?.blocks} />
         {/* {page?.image ? (
           <div className='pl-4'>
             <Image

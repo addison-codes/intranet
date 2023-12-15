@@ -4,14 +4,11 @@ import { EDITOR_TOOLS } from "./EditorTools";
 import { createBrowserClient } from "@supabase/ssr";
 
 
-export default function Editor({ data, onChange, holder }) {
+export default function Editor({ data, onChange, holder, id }) {
   //add a reference to editor
   const ref = useRef();
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-
-
 
   //initialize editorjs
   useEffect(() => {
@@ -19,6 +16,7 @@ export default function Editor({ data, onChange, holder }) {
       supabaseUrl || "",
       supabaseAnonKey || ""
     );
+
     //initialize editor if we don't have a reference
     if (!ref.current) {
       const editor = new EditorJS({
@@ -28,11 +26,12 @@ export default function Editor({ data, onChange, holder }) {
         data,
         async onChange(api, event) {
           const data = await api.saver.save();
-          console.log(data)
-          // const { error } = await supabase
-          //   .from('blocks')
-          //   .insert({ id: data.blocks.id, content: data.blocks.data });
-          // onChange(data);
+          console.log('blocks', data.blocks);
+          const { error } = await supabase
+            .from('pages')
+            .update({ blocks: data })
+            .eq('id', id.id);
+          onChange(data);
         },
       });
       ref.current = editor;

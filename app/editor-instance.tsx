@@ -1,5 +1,4 @@
 "use client";
-
 import dynamic from "next/dynamic";
 import { useState } from "react";
 
@@ -14,6 +13,7 @@ const Editor = dynamic(() => import("../components/Editor"), {
 export default function EditorPage() {
     //state to hold output data. we'll use this for rendering later
     const [data, setData] = useState();
+    console.log(data);
     return (
         <div className="grid w-full grid-rows-2 gap-2 m-2">
             {/* <NewPage /> */}

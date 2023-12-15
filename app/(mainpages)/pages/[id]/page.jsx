@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
+import PreviewRenderer from '@/components/PreviewRenderer';
 
 export const dynamic = 'force-dynamic';
 
@@ -30,43 +31,9 @@ const Pages = async ({ params }) => {
           <h1 className='mb-4 text-4xl font-bold font-universHeading'>
             {page?.title}
           </h1>
-          {/* <p className='text-gray-400'>{page?.date}</p>
-          {page?.author
-            ? `<p className='text-gray-400'>From: ${page?.author}</p>`
-            : ''} */}
-
+          <PreviewRenderer data={page.blocks} />
+          {/* <pre>{JSON.stringify(page.blocks, null, 2)}</pre> */}
         </div>
-        {/* {page?.image ? (
-          <div className='pl-4'>
-            <Image
-              src={page?.image}
-              objectFit='cover'
-              width={400}
-              height={300}
-              alt='page Image'
-            />
-          </div>
-        ) : page?.type === 'ceo' ? (
-          <div className='pl-4'>
-            <Image
-              src={'/richard.png'}
-              objectFit='cover'
-              width={800}
-              height={1000}
-              alt='CEO Image'
-            />
-          </div>
-        ) : (
-          <div className='pl-4'>
-            <Image
-              src={'/generic-page.png'}
-              objectFit='cover'
-              width={400}
-              height={300}
-              alt='page Image'
-            />
-          </div>
-        )} */}
       </div>
     </div>
   );

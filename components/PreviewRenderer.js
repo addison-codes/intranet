@@ -2,7 +2,11 @@ const editorJsHtml = require("editorjs-html");
 const EditorJsToHtml = editorJsHtml();
 
 export default function PreviewRenderer ({ data }) {
-  const html = EditorJsToHtml.parse(data)
+  console.log('data in parser', data);
+  if (data) {
+    var html = EditorJsToHtml.parse(data)
+
+  }
   return (
     <div className="max-w-full prose" key={data.time}>
       {html.map((item, index) => {
