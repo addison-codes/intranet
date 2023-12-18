@@ -4,7 +4,7 @@ import { EDITOR_TOOLS } from "./EditorTools";
 import { createBrowserClient } from "@supabase/ssr";
 
 
-export default function Editor({ data, onChange, holder, id }) {
+export default function Editor({ data, onChange, holder, edit, id }) {
   //add a reference to editor
   const ref = useRef();
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -23,6 +23,7 @@ export default function Editor({ data, onChange, holder, id }) {
         holder: holder,
         tools: EDITOR_TOOLS,
         tunes: ["textVariant"],
+        readOnly: edit ? false : true,
         data,
         async onChange(api, event) {
           const data = await api.saver.save();

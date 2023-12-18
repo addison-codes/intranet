@@ -4,6 +4,7 @@ import React from 'react';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import PreviewRenderer from '@/components/PreviewRenderer';
+import BlockRenderer from '@/components/BlockRenderer';
 
 export const dynamic = 'force-dynamic';
 
@@ -31,7 +32,8 @@ const Pages = async ({ params }) => {
           <h1 className='mb-4 text-4xl font-bold font-universHeading'>
             {page?.title}
           </h1>
-          <PreviewRenderer data={page.blocks} />
+          {/* <PreviewRenderer data={page.blocks} /> */}
+          <BlockRenderer data={page.blocks} />
           {/* <pre>{JSON.stringify(page.blocks, null, 2)}</pre> */}
         </div>
       </div>

@@ -31,7 +31,7 @@ const Pages = async ({ params }) => {
     return <div>Loading</div>;
   }
 
-  console.log('page.blocks', page.blocks);
+  console.log('page.blocks', JSON.parse(page.blocks));
 
   return (
     <div>
@@ -52,38 +52,7 @@ const Pages = async ({ params }) => {
             : ''} */}
           {/* TODO: Need to get the initial page blocks sent to the editor */}
         </div>
-        <EditorPage id={params.id} initBlocks={page?.blocks} />
-        {/* {page?.image ? (
-          <div className='pl-4'>
-            <Image
-              src={page?.image}
-              objectFit='cover'
-              width={400}
-              height={300}
-              alt='page Image'
-            />
-          </div>
-        ) : page?.type === 'ceo' ? (
-          <div className='pl-4'>
-            <Image
-              src={'/richard.png'}
-              objectFit='cover'
-              width={800}
-              height={1000}
-              alt='CEO Image'
-            />
-          </div>
-        ) : (
-          <div className='pl-4'>
-            <Image
-              src={'/generic-page.png'}
-              objectFit='cover'
-              width={400}
-              height={300}
-              alt='page Image'
-            />
-          </div>
-        )} */}
+        <EditorPage id={params.id} initBlocks={page?.blocks} edit />
       </div>
     </div>
   );

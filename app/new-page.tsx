@@ -19,7 +19,7 @@ export default async function NewPage({ user }: { user: User }) {
     const { data } = await supabase.from('pages').insert({ title, departments, document }).select()
     console.log(data)
     if (data) {
-      redirect(`/pages/${data[0].id}`)
+      redirect(`/pages/${data[0].id}/edit`)
     }
   }
   return (

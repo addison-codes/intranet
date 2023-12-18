@@ -15,15 +15,34 @@ import TextVariantTune from "@editorjs/text-variant-tune"
 import Table from "@editorjs/table"
 import Underline from '@editorjs/underline';
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import anyButton from "editorjs-button";
+import Alert from 'editorjs-alert';
+import EditorJsColumns from '@calumk/editorjs-columns';
+import EditorJS from '@editorjs/editorjs';
+
 
 const supabase = createClientComponentClient();
 
-const handleUpload = async (file) => {
+const handleImageUpload = async (file) => {
   const { data, error } = await supabase.storage.from('images').upload(`page-images/${file.name}`, file);
   if (error) {
     throw error
   }
   return data;
+}
+const handleFileUpload = async (file) => {
+  const { data, error } = await supabase.storage.from('files').upload(`page-files/${file.name}`, file);
+  if (error) {
+    throw error
+  }
+  return data;
+}
+
+let column_tools = {
+    header: Header,
+    alert : Alert,
+    paragraph : Paragraph,
+    delimiter : Delimiter
 }
 
 
@@ -31,8 +50,39 @@ export const EDITOR_TOOLS = {
   attaches: {
     class: AttachesTool,
       config: {
-        endpoint: 'http://localhost:3000/uploadFile'
+      /**
+       * Custom uploader
+       */
+      uploader: {
+
+        uploadByFile(file){
+          // your own uploading logic here
+          return handleFileUpload(file).then((data) => {
+            return {
+              success: 1,
+              file: {
+                url: `https://kpifzufhdtskjhvmjorm.supabase.co/storage/v1/object/public/files/${data.path}`,
+                // any other image data you want to store, such as width, height, color, extension, etc
+              }
+            }
+          })
+
+        },
+
+        uploadByUrl(url){
+          // your ajax request for uploading
+          return MyAjax.upload(file).then(() => {
+            return {
+              success: 1,
+              file: {
+                url: 'https://codex.so/upload/redactor_images/o_e48549d1855c7fc1807308dd14990126.jpg',
+                // any other image data you want to store, such as width, height, color, extension, etc
+              }
+            }
+          })
+        }
       }
+    }
   },
   code: Code,
   header: {
@@ -57,7 +107,7 @@ export const EDITOR_TOOLS = {
 
         uploadByFile(file){
           // your own uploading logic here
-          return handleUpload(file).then((data) => {
+          return handleImageUpload(file).then((data) => {
             return {
               success: 1,
               file: {
@@ -91,5 +141,17 @@ export const EDITOR_TOOLS = {
   quote: Quote,
   simpleImage: SimpleImage,
   delimiter: Delimiter,
-  textVariant: TextVariantTune
+  textVariant: TextVariantTune,
+  AnyButton: {
+    class: anyButton,
+    inlineToolbar: false,
+  },
+  columns: {
+    class: EditorJsColumns,
+    config: {
+      EditorJsLibrary: EditorJS,
+      tools: column_tools,
+    }
+  },
+  alert: Alert,
 };
