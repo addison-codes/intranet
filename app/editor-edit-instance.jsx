@@ -19,7 +19,7 @@ export default function EditorPage(id) {
     var jsonBlocks = JSON.parse(id.initBlocks);
   }
   return (
-    <div className="grid w-full grid-rows-2 gap-2 m-2">
+    <div className="grid w-full gap-2 m-2">
       {/* <NewPage /> */}
       <div className="row-span-1">
         <h1>{id.edit ? 'You are editing' : ''}</h1>
