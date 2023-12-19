@@ -11,26 +11,25 @@ const Editor = dynamic(() => import("../components/Editor"), {
 });
 
 
-export default function EditorPage(id, edit) {
+export default function EditorPage(id) {
   //state to hold output data. we'll use this for rendering later
+  console.log('edit', id.edit)
   const [data, setData] = useState();
   if (id.initBlocks) {
-    console.log('initBlocks', id.initBlocks)
     var jsonBlocks = JSON.parse(id.initBlocks);
-    console.log('jsonBlocks', jsonBlocks)
   }
   return (
     <div className="grid w-full grid-rows-2 gap-2 m-2">
       {/* <NewPage /> */}
       <div className="row-span-1">
-        <h1>You are editing</h1>
+        <h1>{id.edit ? 'You are editing' : ''}</h1>
         <div className="border rounded-md">
           <Editor
             id={id}
             data={jsonBlocks}
             onChange={setData}
             holder="editorjs-container"
-            edit={edit}
+            edit={id.edit ?? false}
           />
         </div>
       </div>

@@ -7,7 +7,8 @@ export const dynamic = 'force-dynamic'
 export default async function NewPage({ user }: { user: User }) {
 
   const supabase = createServerComponentClient({ cookies })
-  const { data } = await supabase.from('departments').select('*')
+  const { data: deps } = await supabase.from('departments').select('*')
+  const { data: tags } = await supabase.from('tags').select('*')
 
   const addPage = async (formData: FormData) => {
     'use server'
@@ -15,8 +16,10 @@ export default async function NewPage({ user }: { user: User }) {
     const title = String(formData.get('title'))
     const departments = Number(formData.get('departments'))
     const document = Boolean((formData.get('document') == null ? false : true))
+    const tags = formData.getAll('tags')
+    console.log('selected tags', tags)
     const supabase = createServerActionClient<Database>({ cookies })
-    const { data } = await supabase.from('pages').insert({ title, departments, document }).select()
+    const { data } = await supabase.from('pages').insert({ title, departments, document, tags }).select()
     console.log(data)
     if (data) {
       redirect(`/pages/${data[0].id}/edit`)
@@ -37,6 +40,25 @@ export default async function NewPage({ user }: { user: User }) {
             </span>
           </label>
         </div>
+                <div className="w-full">
+          <label
+            htmlFor="tags"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Set Tags
+          </label>
+          <select
+            id="tags" name='tags'
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" multiple
+          >
+            <option defaultValue={''}>Choose tags</option>
+            {tags?.map((tag: any) => (
+              <option key={tag.id} value={tag.tag}>{tag.tag}</option>
+            )
+            )}
+          </select>
+        </div>
+
         <div className="w-full">
           <label
             htmlFor="departments"
@@ -49,7 +71,7 @@ export default async function NewPage({ user }: { user: User }) {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option defaultValue={''}>Choose a department</option>
-            {data?.map((dept: any) => (
+            {deps?.map((dept: any) => (
               <option value={dept.id}>{dept.department_name}</option>
             )
             )}

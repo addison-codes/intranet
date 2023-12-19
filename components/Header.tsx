@@ -156,7 +156,7 @@ export default function Header() {
                   </li>
                   <li>
                     <a
-                      href='/bd941b39-cf66-4714-9d15-a6e3acfbdec8'
+                      href='/departments/marketing'
                       className='font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
                       Marketing

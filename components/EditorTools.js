@@ -42,7 +42,8 @@ let column_tools = {
     header: Header,
     alert : Alert,
     paragraph : Paragraph,
-    delimiter : Delimiter
+    delimiter : Delimiter,
+    link: Link
 }
 
 
@@ -91,9 +92,12 @@ export const EDITOR_TOOLS = {
         placeholder: 'Enter a Header',
         levels: [2, 3, 4],
         defaultLevel: 2
-    }
+    },
   },
-  paragraph: Paragraph,
+  paragraph: {
+    class: Paragraph,
+    inlineToolbar: true,
+  },
   checklist: CheckList,
   embed: Embed,
   underline: Underline,

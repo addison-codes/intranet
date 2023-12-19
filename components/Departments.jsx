@@ -10,15 +10,15 @@ const Departments = () => {
           <div className='flex flex-wrap items-stretch sm:gap-4 place-content-between'>
             <DeptIcon
               name='Front Office Operations'
-              link='02ddedf18c36408186e1e65e800ade10'
+              link='/departments/front-office-operations'
               image='frontofficeops' width={undefined} tab={undefined} />
             <DeptIcon
               name='Marketing'
-              link='bd941b39-cf66-4714-9d15-a6e3acfbdec8'
+              link='/departments/marketing'
               image='mktg' width={undefined} tab={undefined} />
             <DeptIcon
               name='Clinical Operations'
-              link='a465a6ca-79d5-4213-8514-6eac0c5201a1'
+              link='/departments/clinical-operations'
               image='clinicalops' width={undefined} tab={undefined} />
             <DeptIcon
               name='Information Technology'
