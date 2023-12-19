@@ -19,6 +19,7 @@ import anyButton from "editorjs-button";
 import Alert from 'editorjs-alert';
 import EditorJsColumns from '@calumk/editorjs-columns';
 import EditorJS from '@editorjs/editorjs';
+import Hyperlink from 'editorjs-hyperlink';
 
 
 const supabase = createClientComponentClient();
@@ -43,11 +44,29 @@ let column_tools = {
     alert : Alert,
     paragraph : Paragraph,
     delimiter : Delimiter,
-    link: Link
+    link: Link,
+      hyperlink: {
+    class: Hyperlink,
+    config: {
+      shortcut: 'CMD+L',
+      target: '_blank',
+      rel: 'nofollow'
+    },
+    inlineToolbar: true,
+  },
 }
 
 
 export const EDITOR_TOOLS = {
+  hyperlink: {
+    class: Hyperlink,
+    config: {
+      shortcut: 'CMD+L',
+      target: '_blank',
+      rel: 'nofollow'
+    },
+    inlineToolbar: true,
+  },
   attaches: {
     class: AttachesTool,
       config: {

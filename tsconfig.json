@@ -39,7 +39,7 @@
     "app/(editorpages)/departments/marketing/page.jsx",
     "app/pages/[id]/page.jsx",
     "app/editor-edit-instance.jsx"
-  ],
+, "app/editor-instance.jsx"  ],
   "exclude": [
     "node_modules"
   ]
