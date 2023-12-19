@@ -20,7 +20,6 @@ const Pages = async ({ params }) => {
     const document = Boolean((formData.get('document') == null ? false : true));
     const supabase = createServerActionClient < Database > ({ cookies });
     const { data } = await supabase.from('pages').insert({ title, departments, document }).select();
-    console.log(data);
     if (data) {
       redirect(`/pages/${data[0].id}`);
     }
@@ -31,7 +30,6 @@ const Pages = async ({ params }) => {
     return <div>Loading</div>;
   }
 
-  console.log('page.blocks', JSON.parse(page.blocks));
 
   return (
     <div>

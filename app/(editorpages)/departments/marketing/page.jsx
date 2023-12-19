@@ -25,7 +25,7 @@ export default async function Page() {
         <Image src={'/banners/Marketing.png'} width={1200} height={300} style={{objectFit: "cover"}} alt='Marketing Banner' />
       </div>
         <EditorPage id={38} initBlocks={page?.blocks} edit={false} />
-        {/* <Table /> */}
+        <Table deptId={1} />
     </div>
   );
 

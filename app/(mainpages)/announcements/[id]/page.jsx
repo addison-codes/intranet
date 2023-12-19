@@ -13,7 +13,6 @@ const Announcement = async ({ params }) => {
   const { data } = await supabase.from('announcements').select().eq('id', params.id);
   const announcement = data[0];
 
-  console.log(announcement);
 
   if (!announcement) {
     return <div>Loading</div>;

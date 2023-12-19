@@ -27,7 +27,6 @@ export default function Editor({ data, onChange, holder, edit, id }) {
         data,
         async onChange(api, event) {
           const data = await api.saver.save();
-          console.log('blocks', data.blocks);
           const { error } = await supabase
             .from('pages')
             .update({ blocks: data })

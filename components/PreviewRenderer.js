@@ -2,7 +2,6 @@ const editorJsHtml = require("editorjs-html");
 const EditorJsToHtml = editorJsHtml();
 
 export default function PreviewRenderer ({ data }) {
-  console.log('data in parser', data);
   if (data) {
     var html = EditorJsToHtml.parse(data)
 

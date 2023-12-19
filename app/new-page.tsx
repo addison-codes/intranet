@@ -12,15 +12,12 @@ export default async function NewPage({ user }: { user: User }) {
 
   const addPage = async (formData: FormData) => {
     'use server'
-    console.log(formData.get('document'))
     const title = String(formData.get('title'))
     const departments = Number(formData.get('departments'))
     const document = Boolean((formData.get('document') == null ? false : true))
     const tags = formData.getAll('tags')
-    console.log('selected tags', tags)
     const supabase = createServerActionClient<Database>({ cookies })
     const { data } = await supabase.from('pages').insert({ title, departments, document, tags }).select()
-    console.log(data)
     if (data) {
       redirect(`/pages/${data[0].id}/edit`)
     }

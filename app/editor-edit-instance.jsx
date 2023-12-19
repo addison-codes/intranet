@@ -13,7 +13,6 @@ const Editor = dynamic(() => import("../components/Editor"), {
 
 export default function EditorPage(id) {
   //state to hold output data. we'll use this for rendering later
-  console.log('edit', id.edit)
   const [data, setData] = useState();
   if (id.initBlocks) {
     var jsonBlocks = JSON.parse(id.initBlocks);

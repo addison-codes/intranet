@@ -1,111 +1,42 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-
-
-
-// import moment from 'moment';
 import { createColumnHelper, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table';
-import axios from 'axios';
-
-const defaultData = [
-  {
-    firstName: 'tanner',
-    lastName: 'linsley',
-    age: 24,
-    visits: 100,
-    status: 'In Relationship',
-    progress: 50,
-  },
-  {
-    firstName: 'tandy',
-    lastName: 'miller',
-    age: 40,
-    visits: 40,
-    status: 'Single',
-    progress: 80,
-  },
-  {
-    firstName: 'joe',
-    lastName: 'dirte',
-    age: 45,
-    visits: 20,
-    status: 'Complicated',
-    progress: 10,
-  },
-]
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 const columnHelper = createColumnHelper()
 
-
-
 const columns = [
-  columnHelper.accessor('name', {
-    header: 'Name',
-    cell: info => info.getValue(),
+  columnHelper.accessor(row => row.title, {
+    id: 'title',
+    // cell: info => <a href={`/pages/${info.}`}>{info.getValue()}</a>,
+    cell: ({row}) => (
+    <a className='font-bold text-aptpblue hover:text-black' href={`/pages/${row.original.id}`}>{row.original.title}</a>
+    ),
+    header: () => <span>Title</span>,
     footer: info => info.column.id,
   }),
-  columnHelper.accessor(row => row.lastName, {
-    id: 'lastName',
-    cell: info => <i>{info.getValue()}</i>,
-    header: () => <span>Last Name</span>,
-    footer: info => info.column.id,
-  }),
-  columnHelper.accessor('age', {
-    header: () => 'Age',
+  columnHelper.accessor('tags', {
+    header: () => 'tags',
     cell: info => info.renderValue(),
-    footer: info => info.column.id,
-  }),
-  columnHelper.accessor('visits', {
-    header: () => <span>Visits</span>,
-    footer: info => info.column.id,
-  }),
-  columnHelper.accessor('status', {
-    header: 'Status',
-    footer: info => info.column.id,
-  }),
-  columnHelper.accessor('progress', {
-    header: 'Profile Progress',
     footer: info => info.column.id,
   }),
 ]
 
-function Table() {
+function Table({deptId}) {
+  console.log(deptId)
+
+  const [data, setData] = useState([])
+
+  const getTableData = async () => {
   const supabase = createClientComponentClient();
-  const {data, error} = supabase.from('pages').select().eq('department', 1);
-  // const [data, setData] = useState([])
-  // // const [data, setData] = React.useState(() => [...defaultData])
+  const {data, error} = await supabase.from('pages').select().eq('departments', deptId);
+  setData(data)
+  }
 
-  // useEffect(() => {
-  //   // Fetch data from Notion API here
-  //   axios
-  //     .get(
-  //       `https://api.notion.com/v1/databases/ed7859e28e75471ba0968f6b1643a696`,
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer secret_yPE3BnhpwnkRej3t588muasYKcCnH8EhdIPwpeZUnKN`,
-  //           'Notion-Version': '2021-05-13'
-  //         }
-  //       }
-  //     )
-  //     .then((response) => {
-  //       const notionData = response.data.results
-
-  //       // Transform and set fetched notionData into Person type
-  //       const newData = notionData.map((entry) => ({
-  //         name: entry.properties.name.title[0].text.content
-  //         // lastName: entry.properties.LastName.title[0].text.content,
-  //         // age: parseInt(entry.properties.Age.number),
-  //         // visits: parseInt(entry.properties.Visits.number),
-  //         // status: entry.properties.Status.select.name,
-  //         // progress: parseInt(entry.properties.Progress.number),
-  //       }))
-
-  //       setData(newData)
-  //     })
-  //     .catch((error) => console.log(error))
-  // }, [])
-
+  useEffect(() => {
+    getTableData()
+  }, [])
 
   const table = useReactTable({
     data,
@@ -114,37 +45,40 @@ function Table() {
   })
 
   return (
-    <div className='p-2'>
-      <table>
-        <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th key={header.id}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <div className='h-4' />
+    <div className="">
+      <h1 className='mb-4 text-4xl font-bold font-universHeading'>Documents</h1>
+      <div className='relative overflow-x-auto shadow-md sm:rounded-lg'>
+        <table className='w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400'>
+          <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <th key={header.id} className='px-6 py-3'>
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                  </th>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody>
+            {table.getRowModel().rows.map((row) => (
+              <tr key={row.id} className='border-b odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 dark:border-gray-700'>
+                {row.getVisibleCells().map((cell) => (
+                  <td key={cell.id} className='px-6 py-4'>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div className='h-4' />
+      </div>
     </div>
   )
 }

@@ -2,7 +2,6 @@ import Image from "next/image"
 import Dropdown from "./Dropdown"
 
 export default function Header({noimg}: {noimg?: boolean}) {
-  console.log(noimg)
   return (
     <div className="flex flex-col items-center gap-16">
       <header className={'flex flex-col w-full'}>
@@ -61,7 +60,7 @@ export default function Header({noimg}: {noimg?: boolean}) {
                       // data-collapse-toggle='mega-menu-full-image-dropdown'
                       data-dropdown-toggle="dropdownHover"
                       data-dropdown-trigger="click"
-                      className='block py-2 pl-3 pr-4 font-bold text-white no-underline border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-200 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700'
+                      className='block py-2 pl-3 pr-4 font-bold text-white no-underline border-b border-gray-100 cursor-pointer hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-200 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700'
                     >
                       Our Teams{' '}
                       <svg
@@ -140,13 +139,13 @@ export default function Header({noimg}: {noimg?: boolean}) {
             >
               <div className='grid justify-around px-4 py-5 mx-auto text-sm text-gray-500 dark:text-gray-400 md:grid-cols-2 md:px-6'>
                 <ul
-                  className='pr-10 mb-4 space-y-4 md:mb-0 md:block'
+                  className='pr-10 mb-4 space-y-4 list-none md:mb-0 md:block'
                   aria-labelledby='mega-menu-full-image-button'
                 >
                   <li>
                     <a
                       href='/02ddedf1-8c36-4081-86e1-e65e800ade10'
-                      className='font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
+                      className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
                       Front Office
                     </a>
@@ -158,7 +157,7 @@ export default function Header({noimg}: {noimg?: boolean}) {
                   <li>
                     <a
                       href='/departments/marketing'
-                      className='font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
+                      className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
                       Marketing
                     </a>
@@ -170,7 +169,7 @@ export default function Header({noimg}: {noimg?: boolean}) {
                   <li>
                     <a
                       href='/a465a6ca-79d5-4213-8514-6eac0c5201a1'
-                      className='font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
+                      className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
                       Clinical Operations
                     </a>
@@ -182,7 +181,7 @@ export default function Header({noimg}: {noimg?: boolean}) {
                   <li>
                     <a
                       href='#'
-                      className='font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
+                      className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
                       Information Technology (Coming Soon!)
                     </a>
@@ -194,7 +193,7 @@ export default function Header({noimg}: {noimg?: boolean}) {
                   <li>
                     <a
                       href='/6a914851f53845f2a8f9f36477988b6b'
-                      className='font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
+                      className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
                       Workers Compensation
                     </a>
@@ -206,7 +205,7 @@ export default function Header({noimg}: {noimg?: boolean}) {
                   <li>
                     <a
                       href='/f4f28e1f-4c45-453d-8fad-c175fffb049a'
-                      className='font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
+                      className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
                       Human Resources
                     </a>
@@ -216,11 +215,11 @@ export default function Header({noimg}: {noimg?: boolean}) {
                     </p>
                   </li>
                 </ul>
-                <ul className='mb-4 space-y-4 md:mb-0'>
+                <ul className='mb-4 space-y-4 list-none md:mb-0'>
                   <li>
                     <a
                       href='/6665d94f9e3b41b096b88737af9b7a6a'
-                      className='font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
+                      className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
                       Continuing Education
                     </a>
@@ -232,7 +231,7 @@ export default function Header({noimg}: {noimg?: boolean}) {
                   <li>
                     <a
                       href='/69ff00c706b347fdbdc7550348af998b'
-                      className='font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
+                      className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
                       Compliance (Coming Soon!)
                     </a>
@@ -246,7 +245,7 @@ export default function Header({noimg}: {noimg?: boolean}) {
                   <li>
                     <a
                       href='#'
-                      className='font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
+                      className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
                       Revenue Cycle (Coming Soon!)
                     </a>
@@ -258,7 +257,7 @@ export default function Header({noimg}: {noimg?: boolean}) {
                   <li>
                     <a
                       href='#'
-                      className='font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
+                      className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
                       Workfit (Coming Soon)
                     </a>
@@ -266,7 +265,7 @@ export default function Header({noimg}: {noimg?: boolean}) {
                   <li>
                     <a
                       href='#'
-                      className='font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
+                      className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
                       Biocorrect (Coming Soon)
                     </a>
