@@ -1,7 +1,8 @@
 import Image from "next/image"
 import Dropdown from "./Dropdown"
 
-export default function Header() {
+export default function Header({noimg}: {noimg?: boolean}) {
+  console.log(noimg)
   return (
     <div className="flex flex-col items-center gap-16">
       <header className={'flex flex-col w-full'}>
@@ -59,7 +60,7 @@ export default function Header() {
                       id='dropdownHoverButton'
                       // data-collapse-toggle='mega-menu-full-image-dropdown'
                       data-dropdown-toggle="dropdownHover"
-                      data-dropdown-trigger="hover"
+                      data-dropdown-trigger="click"
                       className='block py-2 pl-3 pr-4 font-bold text-white no-underline border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-200 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700'
                     >
                       Our Teams{' '}
@@ -315,9 +316,13 @@ export default function Header() {
             </div>
           </nav>
         </div>
+        {noimg ? "" : (
         <div className="relative hidden w-full h-48 sm:block">
           <Image priority src='/stronger-together.png' alt='Alliance PTP Logo' fill={true} />  
         </div>
+        )
+        }
+
       </header>
     </div>
   )

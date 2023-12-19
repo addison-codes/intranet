@@ -11,8 +11,6 @@ export const metadata = {
 }
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
 }) {
   return (
     <html lang="en" className={GeistSans.className}>
@@ -20,7 +18,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes='any' />
       </head>
       <body className="m-0 bg-background text-foreground">
-        <Header />
+        <Header noimg={true} />
               <div className='container px-2 mx-auto sm:px-0'>
           <div className=''>{children}</div>
       </div>

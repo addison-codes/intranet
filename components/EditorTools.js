@@ -20,6 +20,7 @@ import Alert from 'editorjs-alert';
 import EditorJsColumns from '@calumk/editorjs-columns';
 import EditorJS from '@editorjs/editorjs';
 import Hyperlink from 'editorjs-hyperlink';
+import Iframe from '@hammaadhrasheedh/editorjs-iframe'
 
 
 const supabase = createClientComponentClient();
@@ -57,6 +58,7 @@ let column_tools = {
       },
       inlineToolbar: true,
     },
+    iframe: Iframe,
 }
 
 
@@ -108,6 +110,7 @@ export const EDITOR_TOOLS = {
     }
   },
   code: Code,
+  iframe: Iframe,
   header: {
       class: Header,
       config: {
@@ -121,7 +124,21 @@ export const EDITOR_TOOLS = {
     inlineToolbar: true,
   },
   checklist: CheckList,
-  embed: Embed,
+  embed: {
+    class: Embed,
+    config: {
+      services: {
+        clickup: {
+          regex: /(?:https?:\/\/(?:forms\.)?)?clickup\.com/,
+          embedUrl: 'https://app.clickup.com/t/$1',
+          html: `<iframe height='300' scrolling='no' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'></iframe>"`,
+          height: 600,
+          width: 600,
+          id: (groups) => groups.join('/embed/')
+        },
+        }
+      },
+    },
   underline: Underline,
   image: {
     class: ImageTool,

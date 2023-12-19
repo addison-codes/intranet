@@ -47,3 +47,7 @@ a {
   max-width: 280px !important;
   min-width: 0px !important;
 }
+
+.codex-editor__redactor {
+  padding-bottom: 0px !important;
+}
