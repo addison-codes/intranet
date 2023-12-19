@@ -42,18 +42,21 @@ const handleFileUpload = async (file) => {
 let column_tools = {
     header: Header,
     alert : Alert,
-    paragraph : Paragraph,
+    paragraph: {
+      class: Paragraph,
+      inlineToolbar: true,
+    },
     delimiter : Delimiter,
     link: Link,
-      hyperlink: {
-    class: Hyperlink,
-    config: {
-      shortcut: 'CMD+L',
-      target: '_blank',
-      rel: 'nofollow'
+    hyperlink: {
+      class: Hyperlink,
+      config: {
+        shortcut: 'CMD+L',
+        target: '_blank',
+        rel: 'nofollow'
+      },
+      inlineToolbar: true,
     },
-    inlineToolbar: true,
-  },
 }
 
 
