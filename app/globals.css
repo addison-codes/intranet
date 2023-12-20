@@ -60,3 +60,7 @@ a {
   font-family: "Univers-Heading" !important;
   font-size: 2rem !important;
 }
+
+.image-tool__image-picture {
+  margin: 0px auto !important;
+}
