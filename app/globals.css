@@ -55,3 +55,8 @@ a {
 .image-tool__caption {
   display: none !important;
 }
+
+.ce-header {
+  font-family: "Univers-Heading" !important;
+  font-size: 2rem !important;
+}
