@@ -51,3 +51,7 @@ a {
 .codex-editor__redactor {
   padding-bottom: 0px !important;
 }
+
+.image-tool__caption {
+  display: none !important;
+}
