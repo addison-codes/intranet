@@ -36,11 +36,11 @@
     ".next/types/**/*.ts",
     "app/(mainpages)/announcements/page.jsx",
     "app/(mainpages)/announcements/route.js",
-    "app/(editorpages)/departments/marketing/page.jsx",
+    "app/(editorpages)/departments/marketing-old/page.jsx",
     "app/pages/[id]/page.jsx",
     "app/editor-edit-instance.jsx"
 , "app/editor-instance.jsx", "app/(editorpages)/layout.jsx", "components/Table.jsx"  ],
   "exclude": [
     "node_modules"
   ]
-}
+} 

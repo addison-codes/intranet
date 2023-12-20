@@ -41,7 +41,7 @@ const Pages = async ({ params }) => {
 
       <div className='flex flex-wrap justify-around p-8 mx-auto my-8 bg-white border-b shadow-md sm:rounded-lg dark:bg-gray-800/95 dark:border-gray-700'>
         <div className='w-full'>
-          <h1 className='mb-4 font-bold text-8xl font-universHeading'>
+          <h1 className='mb-4 font-bold text-center text-8xl font-universHeading'>
             {page?.title}
           </h1>
           {/* <p className='text-gray-400'>{page?.date}</p>

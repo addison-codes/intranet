@@ -22,27 +22,27 @@ const Departments = () => {
               image='clinicalops' width={undefined} tab={undefined} />
             <DeptIcon
               name='Information Technology'
-              link='e7a11eef95444dee989323c29b4176b0'
+              link='/departments/information-technology'
               image='it' width={undefined} tab={undefined} />
             <DeptIcon
               name='Workers Compensation'
-              link='6a914851f53845f2a8f9f36477988b6b'
+              link='/departments/workers-compensation'
               image='workerscomp' width={undefined} tab={undefined} />
             <DeptIcon
               name='Human Resources'
-              link='f4f28e1f-4c45-453d-8fad-c175fffb049a'
+              link='/departments/human-resources'
               image='hr' width={undefined} tab={undefined} />
             <DeptIcon
               name='Continuing Education'
-              link='6665d94f9e3b41b096b88737af9b7a6a'
+              link='/departments/continuing-education'
               image='contued' width={undefined} tab={undefined} />
             <DeptIcon
               name='Compliance'
-              link='69ff00c706b347fdbdc7550348af998b'
+              link='/departments/compliance'
               image='compliance' width={undefined} tab={undefined} />
             <DeptIcon
               name='Revenue Cycle'
-              link='50c77c6b40ef448ba564f9df89c3d8b5'
+              link='/departments/revenue-cycle'
               image='accounting' width={undefined} tab={undefined} />
           </div>
           </div>

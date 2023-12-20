@@ -144,7 +144,7 @@ export default function Header({noimg}: {noimg?: boolean}) {
                 >
                   <li>
                     <a
-                      href='/02ddedf1-8c36-4081-86e1-e65e800ade10'
+                      href='/departments/front-office-operations'
                       className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
                       Front Office
@@ -168,7 +168,7 @@ export default function Header({noimg}: {noimg?: boolean}) {
                   </li>
                   <li>
                     <a
-                      href='/a465a6ca-79d5-4213-8514-6eac0c5201a1'
+                      href='/departments/clinical-operations'
                       className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
                       Clinical Operations
@@ -180,10 +180,10 @@ export default function Header({noimg}: {noimg?: boolean}) {
                   </li>
                   <li>
                     <a
-                      href='#'
+                      href='/departments/information-technology'
                       className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
-                      Information Technology (Coming Soon!)
+                      Information Technology
                     </a>
                     <p>
                       Connect with the help desk and view updates to our
@@ -192,7 +192,7 @@ export default function Header({noimg}: {noimg?: boolean}) {
                   </li>
                   <li>
                     <a
-                      href='/6a914851f53845f2a8f9f36477988b6b'
+                      href='/departments/workers-compensation'
                       className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
                       Workers Compensation
@@ -204,7 +204,7 @@ export default function Header({noimg}: {noimg?: boolean}) {
                   </li>
                   <li>
                     <a
-                      href='/f4f28e1f-4c45-453d-8fad-c175fffb049a'
+                      href='/departments/human-resources'
                       className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
                       Human Resources
@@ -218,7 +218,7 @@ export default function Header({noimg}: {noimg?: boolean}) {
                 <ul className='mb-4 space-y-4 list-none md:mb-0'>
                   <li>
                     <a
-                      href='/6665d94f9e3b41b096b88737af9b7a6a'
+                      href='/departments/continuing-education'
                       className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
                       Continuing Education
@@ -230,10 +230,10 @@ export default function Header({noimg}: {noimg?: boolean}) {
                   </li>
                   <li>
                     <a
-                      href='/69ff00c706b347fdbdc7550348af998b'
+                      href='/departments/compliance'
                       className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
-                      Compliance (Coming Soon!)
+                      Compliance
                     </a>
                     <p>
                       Maintain quality, compassionate, fiscally responsible
@@ -244,10 +244,10 @@ export default function Header({noimg}: {noimg?: boolean}) {
 
                   <li>
                     <a
-                      href='#'
+                      href='/departments/revenue-cycle'
                       className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
-                      Revenue Cycle (Coming Soon!)
+                      Revenue Cycle
                     </a>
                     <p>
                       View resources, forms, and policies related to the Patient

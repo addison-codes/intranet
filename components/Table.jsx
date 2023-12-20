@@ -24,14 +24,17 @@ const columns = [
 ]
 
 function Table({deptId}) {
-  console.log(deptId)
-
   const [data, setData] = useState([])
 
   const getTableData = async () => {
   const supabase = createClientComponentClient();
-  const {data, error} = await supabase.from('pages').select().eq('departments', deptId);
-  setData(data)
+  if (deptId === '*') {
+    const {data, error} = await supabase.from('pages').select().eq('document', true);
+    setData(data)
+  } else {
+    const {data, error} = await supabase.from('pages').select().eq('document', true).eq('departments', deptId);
+    setData(data)
+  }
   }
 
   useEffect(() => {
