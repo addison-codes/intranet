@@ -15,7 +15,8 @@ export default function EditorPage(id) {
   //state to hold output data. we'll use this for rendering later
   const [data, setData] = useState();
   if (id.initBlocks) {
-    var jsonBlocks = JSON.parse(id.initBlocks);
+    const linkFix = id.initBlocks.replaceAll('http://localhost:3000', 'https://intranet-aptp.vercel.app/')
+    var jsonBlocks = JSON.parse(linkFix);
   }
   return (
     <div className="grid w-full gap-2 m-2">

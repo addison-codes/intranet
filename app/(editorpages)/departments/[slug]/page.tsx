@@ -14,7 +14,6 @@ export default async function Page({ params }: { params: any }) {
 
   if (!data) return <div>Loading...</div>
   const dep = data[0];
-  console.log('dep', dep)
 
 
   return (
