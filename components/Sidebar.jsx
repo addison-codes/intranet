@@ -7,7 +7,7 @@ import Policies from './Policies';
 
 const Sidebar = () => {
   return (
-    <div className='col-span-1 row-span-1 sm:col-span-1'>
+    <div className='col-span-1 row-span-1 sm:col-span-1 bg-gray-300 p-4'>
       <Pathways />
       <Links />
     </div>

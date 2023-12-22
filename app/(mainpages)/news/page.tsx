@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic'
 const news = () => {
   return (
     <div className='col-span-4 mt-8 sm:pl-2'>
-      <h2 className='pl-4 text-6xl font-bold sm:pl-0 font-universHeading'>Latest News</h2>
+      <h2 className='pl-4 text-6xl font-bold sm:pl-0 font-universHeading'>Company News</h2>
       <div className='flex'>
         <Announcements />
       </div>

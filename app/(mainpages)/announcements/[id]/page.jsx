@@ -108,12 +108,12 @@ const Announcement = async ({ params }) => {
             />
           </div>
         ) : announcement?.type === 'ceo' ? (
-          <div className='pl-4'>
+          <div className='pl-4 max-w-32 mt-16'>
             <Image
               src={'/richard.png'}
               objectFit='cover'
-              width={800}
-              height={1000}
+              width={400}
+              height={500}
               alt='CEO Image'
             />
           </div>

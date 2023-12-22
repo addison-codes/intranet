@@ -1,11 +1,11 @@
 import Image from "next/image"
 import Dropdown from "./Dropdown"
 
-export default function Header({noimg}: {noimg?: boolean}) {
+export default function Header({ noimg }: { noimg?: boolean }) {
   return (
     <div className="flex flex-col items-center gap-16">
       <header className={'flex flex-col w-full'}>
-        <nav className='container order-1 px-4 mx-auto border-gray-200 lg:px-6 dark:bg-gray-900 dark:border-gray-800'>
+        <nav className='container order-1 px-4 mx-auto border-gray-200 lg:px-6 dark:bg-gray-900 dark:border-gray-800 sticky top-0'>
           <div className='flex items-center justify-between'>
             {/* <Dropdown /> */}
 
@@ -316,9 +316,9 @@ export default function Header({noimg}: {noimg?: boolean}) {
           </nav>
         </div>
         {noimg ? "" : (
-        <div className="relative hidden w-full h-48 sm:block">
-          <Image priority src='/stronger-together.png' alt='Alliance PTP Logo' fill={true} />  
-        </div>
+          <div className="relative hidden w-full h-48 sm:block">
+            <Image priority src='/stronger-together.png' alt='Alliance PTP Logo' fill={true} />
+          </div>
         )
         }
 
