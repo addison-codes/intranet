@@ -64,3 +64,19 @@ a {
 .image-tool__image-picture {
   margin: 0px auto !important;
 }
+
+/* Calendar */
+
+.dhx_cal_today_button {display:none !important}
+.day_tab {display:none !important}
+.week_tab {display:none !important}
+.month_tab {display:none !important}
+.dhx_cal_date {
+    text-align: left !important;
+    display: block !important;
+}
+@media (max-width: 500px) {
+.dhx_cal_date {
+    display: inline !important;
+}
+}
