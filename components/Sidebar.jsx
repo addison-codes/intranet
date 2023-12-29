@@ -8,10 +8,13 @@ import MVV from './MVV';
 
 const Sidebar = () => {
   return (
-    <div className='col-span-1 row-span-1 p-4 bg-gray-300 sm:col-span-1'>
-      <Pathways />
-      <Links />
-      <MVV />
+    <div className="">
+      <div className='col-span-1 row-span-1 p-4 bg-gray-300 sm:col-span-1'>
+        <Pathways />
+        <Links />
+      </div>
+        <MVV />
+
     </div>
   );
 };
