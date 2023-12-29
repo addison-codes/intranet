@@ -42,7 +42,7 @@ const Departments = () => {
       </div>
       <div>
         <a
-          href="/departments/Human Resources"
+          href="/departments/human-resources"
           className="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-aptpblue focus:outline-none focus:ring-2 focus:ring-aptpblue focus:text-aptpblue dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
         >
           Human Resources
