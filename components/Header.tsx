@@ -1,14 +1,18 @@
 import Image from "next/image"
 import Dropdown from "./Dropdown"
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
+import { cookies } from "next/headers"
 
-export default function Header({ noimg }: { noimg?: boolean }) {
+export default async function Header({ noimg }: { noimg?: boolean }) {
+    const supabase = createServerComponentClient({ cookies })
+  const { data: { session } } = await supabase.auth.getSession()
+
   return (
     <div className="flex flex-col items-center gap-16">
       <header className={'flex flex-col w-full'}>
-        <nav className='container order-1 px-4 mx-auto border-gray-200 lg:px-6 dark:bg-gray-900 dark:border-gray-800 sticky top-0'>
+        <nav className='container sticky top-0 order-1 px-4 mx-auto border-gray-200 lg:px-6 dark:bg-gray-900 dark:border-gray-800'>
           <div className='flex items-center justify-between'>
             {/* <Dropdown /> */}
-
             <div className='flex items-center justify-between flex-shrink-0 ml-4 sm:hidden lg:order-2'>
               <button
                 type='button'
@@ -130,6 +134,11 @@ export default function Header({ noimg }: { noimg?: boolean }) {
                     </div>
                   )} */}
                   {/* <ToggleThemeButton /> */}
+                  {session?.user.email !== undefined ? (
+                    <p className="block py-2 pl-3 pr-4 font-bold text-white no-underline capitalize border-b border-gray-100!">Welcome, {session.user.email.split('.')[0]} </p> ) : ''
+                  }
+
+
                 </div>
               </div>
             </div>
