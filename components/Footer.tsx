@@ -1,23 +1,19 @@
 import * as React from 'react'
 import Bug from '@/components/Bug'
 import Departments from '@/components/Departments'
-import Policies from './Policies'
+import EmployeeServices from './EmployeeServices'
+import BusinessServices from './BusinessServices'
 
 export const Footer = () => {
   return (
     <>
       <section className='p-4 mt-10 shadow bg-aptpblue dark:bg-gray-900'>
         <div className='w-full max-w-screen-xl p-4 mx-auto md:py-8'>
-          <div className="flex flex-row-reverse flex-wrap order-last">
-            <div className="justify-around w-full sm:w-1/2">
-              <div className="right-0 flex justify-around">
-                <Policies />
-                {/* <Bug /> */}
-              </div>
-            </div>
-            <div className="w-full sm:w-1/2">
-              <Departments />
-            </div>
+          <div className="flex flex-wrap gap-8">
+            <EmployeeServices />
+            <BusinessServices />
+            <Departments />
+            <Bug />
           </div>
           <hr className='my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8' />
           <div className='flex justify-between'>

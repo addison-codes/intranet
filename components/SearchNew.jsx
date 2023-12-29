@@ -61,9 +61,9 @@ const SearchNew = () => {
         </button>
       </div>
     </form>
-    {results ? (
-    <div className="absolute z-20 bg-gray-300 border rounded results">
-      <ul>
+    {results.length > 0 ? (
+    <div className="absolute z-20 bg-gray-300 border rounded animate-in results">
+      <ul className='pr-10'>
         {results.map((result) => {
           return (<li className='p-2 list-none animate-in hover:text-gray-700'><a href={`/pages/${result.id}`}>{result.title}</a></li>)
         })}

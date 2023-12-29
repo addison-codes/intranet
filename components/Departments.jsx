@@ -4,48 +4,77 @@ import DeptIcon from './DeptIcon'
 const Departments = () => {
   return (
     <div>
-          <h3 className='mt-6 mb-6 text-6xl font-bold text-center text-white font-universSubheading'>
-            Departments
-          </h3>
-          <div className='flex flex-wrap items-stretch sm:gap-4 place-content-between'>
-            <DeptIcon
-              name='Front Office Operations'
-              link='/departments/front-office-operations'
-              image='frontofficeops' width={undefined} tab={undefined} />
-            <DeptIcon
-              name='Marketing'
-              link='/departments/marketing'
-              image='mktg' width={undefined} tab={undefined} />
-            <DeptIcon
-              name='Clinical Operations'
-              link='/departments/clinical-operations'
-              image='clinicalops' width={undefined} tab={undefined} />
-            <DeptIcon
-              name='Information Technology'
-              link='/departments/information-technology'
-              image='it' width={undefined} tab={undefined} />
-            <DeptIcon
-              name='Workers Compensation'
-              link='/departments/workers-compensation'
-              image='workerscomp' width={undefined} tab={undefined} />
-            <DeptIcon
-              name='Human Resources'
-              link='/departments/human-resources'
-              image='hr' width={undefined} tab={undefined} />
-            <DeptIcon
-              name='Continuing Education'
-              link='/departments/continuing-education'
-              image='contued' width={undefined} tab={undefined} />
-            <DeptIcon
-              name='Compliance'
-              link='/departments/compliance'
-              image='compliance' width={undefined} tab={undefined} />
-            <DeptIcon
-              name='Revenue Cycle'
-              link='/departments/revenue-cycle'
-              image='accounting' width={undefined} tab={undefined} />
-          </div>
-          </div>
+      <h2 className='mt-10 mb-4 text-4xl font-extrabold text-white font-universSubheading dark:text-white'><span className='ml-2'>Departments</span></h2>
+      <div className="flex text-sm font-medium text-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+      <div>
+
+        <a
+          href="/departments/front-office-operations"
+          aria-current="true"
+          className="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-aptpblue focus:outline-none focus:ring-2 focus:ring-aptpblue focus:text-aptpblue dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+        >
+          Front Office Operations
+        </a>
+        <a
+          href="/departments/marketing"
+          className="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-aptpblue focus:outline-none focus:ring-2 focus:ring-aptpblue focus:text-aptpblue dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+        >
+          Marketing
+        </a>
+        <a
+          href="/departments/clinical-operations"
+          className="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-aptpblue focus:outline-none focus:ring-2 focus:ring-aptpblue focus:text-aptpblue dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+        >
+          Clinical Operations
+        </a>
+        <a
+          href="/departments/information-technology"
+          className="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-aptpblue focus:outline-none focus:ring-2 focus:ring-aptpblue focus:text-aptpblue dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+        >
+          Information Technology
+        </a>
+        <a
+          href="/departments/worker-compensation"
+          className="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-aptpblue focus:outline-none focus:ring-2 focus:ring-aptpblue focus:text-aptpblue dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+        >
+          Workers Compensation
+        </a>
+      </div>
+      <div>
+        <a
+          href="/departments/Human Resources"
+          className="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-aptpblue focus:outline-none focus:ring-2 focus:ring-aptpblue focus:text-aptpblue dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+        >
+          Human Resources
+        </a>
+        <a
+          href="/departments/continuing-education"
+          className="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-aptpblue focus:outline-none focus:ring-2 focus:ring-aptpblue focus:text-aptpblue dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+        >
+          Continuing Education
+        </a>
+        <a
+          href="/departments/compliance"
+          className="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-aptpblue focus:outline-none focus:ring-2 focus:ring-aptpblue focus:text-aptpblue dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+        >
+          Compliance
+        </a>
+        <a
+          href="/departments/revenue-cycle"
+          className="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-aptpblue focus:outline-none focus:ring-2 focus:ring-aptpblue focus:text-aptpblue dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+        >
+          Revenue Cycle
+        </a>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+          
   )
 }
 

@@ -4,6 +4,7 @@ import Calendar from '@/components/Calendar'
 import AnnouncementSection from '@/components/AnnouncementSection'
 import SearchNew from '@/components/SearchNew'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+import { redirect } from 'next/navigation'
 
 export const dynamic = 'force-dynamic'
 
@@ -12,10 +13,13 @@ const Index = async () => {
   const supabase = createServerComponentClient({ cookies })
   const { data: { session } } = await supabase.auth.getSession()
 
-  // if (!session) {
-  //   redirect('/login')
-  // }
+  if (!session) {
+    redirect('/login')
+  }
 
+  console.log(session.user)
+  const user = session.user.email.split('@')
+  const name = user[0].split('.')
 
   return (
     <div className="flex flex-col items-center flex-1 w-full gap-20">
@@ -26,17 +30,17 @@ const Index = async () => {
       </nav> */}
       <div className="flex flex-col w-full px-3 opacity-0 animate-in">
         <main className="flex flex-col flex-1 gap-6 mb-8">
-          <h2 className="mb-4 text-6xl font-bold text-center font-universHeading">Welcome, APTP User!</h2>
+          <h2 className="mb-4 text-6xl font-bold text-center capitalize font-universHeading">Welcome, {name[0]}!</h2>
           <SearchNew />
           {/* <p>user: {user?.toString() ?? 'No user found'}</p>
           <p>session: {session?.toString() ?? 'No session found'}</p> */}
           {/* {isSupabaseConnected ? <SignUpUserSteps /> : <ConnectSupabaseSteps />} */}
         </main>
         <div className='flex flex-wrap sm:flex-row'>
-          <div className="w-full sm:w-2/3">
+          <div className="w-full sm:w-1/2">
             <AnnouncementSection />
           </div>
-          <div className="w-full sm:w-1/3">
+          <div className="w-full sm:w-1/2">
             <Calendar />
           </div>
         </div>
