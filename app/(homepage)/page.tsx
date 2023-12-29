@@ -5,6 +5,7 @@ import AnnouncementSection from '@/components/AnnouncementSection'
 import SearchNew from '@/components/SearchNew'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { redirect } from 'next/navigation'
+import MVV from '@/components/MVV'
 
 export const dynamic = 'force-dynamic'
 
@@ -47,6 +48,7 @@ const Index = async () => {
         </div>
         <div className='mt-6'>
           <ReviewCarousel />
+          <MVV />
         </div>
 
       </div>

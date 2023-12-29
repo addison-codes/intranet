@@ -2,8 +2,8 @@ import React from 'react'
 
 const MVV = () => {
   return (
-    <div className='flex flex-wrap'>
-      <div className="bg-aptpgreen">
+    <div className='flex justify-between gap-4 mt-8'>
+      <div className="w-1/3 bg-aptpgreen">
         <div className="flex flex-col justify-center p-4">
           <h5 className='my-1 text-4xl text-white drop-shadow-lg w-60 dark:text-white font-universSubheading'>
             <span className=''>Mission</span>
@@ -13,7 +13,7 @@ const MVV = () => {
           </p>
         </div>
       </div>
-      <div className="bg-aptppurple">
+      <div className="w-1/3 bg-aptppurple">
         <div className="flex flex-col justify-center p-4">
           <h5 className='my-1 text-4xl text-white drop-shadow-lg w-60 dark:text-white font-universSubheading'>
             <span className=''>Vision</span>
@@ -23,7 +23,7 @@ const MVV = () => {
           </p>
         </div>
       </div>
-      <div className="bg-aptpred">
+      <div className="w-1/3 bg-aptpred">
         <div className="flex flex-col justify-center p-4">
           <h5 className='my-1 text-4xl text-white drop-shadow-lg w-60 dark:text-white font-universSubheading'>
             <span className=''>Values</span>

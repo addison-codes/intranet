@@ -13,7 +13,7 @@ const Sidebar = () => {
         <Pathways />
         <Links />
       </div>
-        <MVV />
+        {/* <MVV /> */}
 
     </div>
   );
