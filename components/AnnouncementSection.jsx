@@ -10,7 +10,7 @@ export const dynamic = 'force-dynamic';
 
 const AnnouncementSection = async () => {
   const supabase = createServerComponentClient({ cookies });
-  const { data } = await supabase.from('announcements').select('*');
+  const { data } = await supabase.from('announcements').select('*').order('created_at', {ascending: false}).limit(4);
 
   return (
     <div className='col-span-2 sm:col-span-1'>
@@ -58,7 +58,7 @@ const AnnouncementSection = async () => {
             </a>
           ))}
         </div>
-        {/* <a
+        <a
           href={`/news`}
           className='bottom-[20px] mt-4 left-0 right-0 inline-flex items-center justify-center w-48 mx-auto px-3 py-2 text-sm font-medium text-center text-white bg-aptpblue rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-aptpblue dark:focus:ring-blue-800 font'
         >
@@ -78,7 +78,7 @@ const AnnouncementSection = async () => {
               d='M1 5h12m0 0L9 1m4 4L9 9'
             />
           </svg>
-        </a> */}
+        </a>
       </div>
     </div>
   );

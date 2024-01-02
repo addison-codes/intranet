@@ -29,10 +29,10 @@ const MVV = () => {
             <span className=''>Values</span>
           </h5>
           <p className='italic text-white'>
-            Put PEOPLE FIRST
-            Lead with INTEGRITY
-            Treat with COMPASSION
-            Build lasting RELATIONSHIPS
+            Put PEOPLE FIRST<br />
+            Lead with INTEGRITY<br />
+            Treat with COMPASSION<br />
+            Build lasting RELATIONSHIPS<br />
           </p>
         </div>
       </div>
