@@ -9,7 +9,7 @@ const PreviousAnnouncements = () => {
 
   const getAnnouncements = async () => {
     const supabase = createClientComponentClient()
-    const { data } = await supabase.from('announcements').select('*').range(0, 15) 
+    const { data } = await supabase.from('announcements').select('*') 
     setAnnouncements(data)
   }
 
@@ -22,7 +22,7 @@ const PreviousAnnouncements = () => {
 
   return (
     <div className='col-span-1 mt-6'>
-      <div className='relative w-full max-w-sm p-6 rounded-lg '>
+      <div className='relative max-w-sm p-6 rounded-lg sm:max-w-full '>
         <h2 className='mb-12 text-5xl font-bold font-universHeading'>
           Previous News
         </h2>
@@ -60,7 +60,7 @@ const PreviousAnnouncements = () => {
           </button>
           {/* Add more buttons for other types if needed */}
         </div>
-        <div className='flex flex-col gap-6 gap-x-20 sm:flex-wrap sm:max-h-120'>
+        <div className='flex flex-col w-full gap-6 p-4 overflow-x-scroll gap-x-20 sm:flex-wrap sm:max-h-120'>
           {data?.map(
             (announcement) =>
               (!selectedType || announcement.type === selectedType) && (
