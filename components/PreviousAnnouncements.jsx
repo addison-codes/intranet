@@ -9,9 +9,11 @@ const PreviousAnnouncements = () => {
 
   const getAnnouncements = async () => {
     const supabase = createClientComponentClient()
-    const { data } = await supabase.from('announcements').select('*')  
+    const { data } = await supabase.from('announcements').select('*').range(0, 15) 
     setAnnouncements(data)
   }
+
+  console.log(announcements)
 
   const data = announcements
   useEffect(() => {
