@@ -108,7 +108,7 @@ const Announcement = async ({ params }) => {
             />
           </div>
         ) : announcement?.type === 'ceo' ? (
-          <div className='pl-4 max-w-32 mt-16'>
+          <div className='pl-4 mt-16 max-w-32'>
             <Image
               src={'/richard.png'}
               objectFit='cover'
@@ -117,6 +117,8 @@ const Announcement = async ({ params }) => {
               alt='CEO Image'
             />
           </div>
+        ) : announcement?.type === 'newletter' ? (
+<div className=""></div>
         ) : (
           <div className='pl-4'>
             <Image
