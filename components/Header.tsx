@@ -256,7 +256,7 @@ export default async function Header({ noimg }: { noimg?: boolean }) {
                       href='/departments/revenue-cycle'
                       className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
-                      Revenue Cycle
+                      Revenue Cycle (Coming Soon)
                     </a>
                     <p>
                       View resources, forms, and policies related to the Patient
