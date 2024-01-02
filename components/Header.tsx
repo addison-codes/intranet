@@ -2,6 +2,7 @@ import Image from "next/image"
 import Dropdown from "./Dropdown"
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers"
+import Banner from "./Banner"
 
 export default async function Header({ noimg }: { noimg?: boolean }) {
     const supabase = createServerComponentClient({ cookies })
@@ -10,6 +11,7 @@ export default async function Header({ noimg }: { noimg?: boolean }) {
   return (
     <div className="flex flex-col items-center gap-16">
       <header className={'flex flex-col w-full'}>
+      <Banner />
         <nav className='container sticky top-0 order-1 px-4 mx-auto border-gray-200 lg:px-6 dark:bg-gray-900 dark:border-gray-800'>
           <div className='flex items-center justify-between'>
             {/* <Dropdown /> */}
