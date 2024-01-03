@@ -4,16 +4,22 @@ import Head from 'next/head';
 import EditorPage from '@/app/editor-edit-instance';
 import Image from 'next/image';
 import Table from '@/components/Table';
+import { redirect } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
 
 
 export default async function Page({ params }: { params: any }) {
   const supabase = createServerComponentClient({ cookies });
+  const { data: { session } } = await supabase.auth.getSession();
   const { data } = await supabase.from('departments').select('*, main_page, main_page(id, blocks)').eq('slug', params.slug);
 
   if (!data) return <div>Loading...</div>
   const dep = data[0];
+
+    if (!session) {
+    redirect('/login')
+  }
 
 
   return (
