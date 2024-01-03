@@ -21,6 +21,8 @@ export default async function Page({ params }: { params: any }) {
     redirect('/login')
   }
 
+  console.log(session)
+
 
   return (
     <div className="">
