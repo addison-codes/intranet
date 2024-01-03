@@ -1,6 +1,5 @@
 import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import Head from 'next/head';
 import EditorPage from '@/app/editor-edit-instance';
 import Image from 'next/image';
 import Table from '@/components/Table';
@@ -21,7 +20,7 @@ export default async function Page({ params }: { params: any }) {
     redirect('/login')
   }
 
-  console.log(session)
+  console.log('dept', session)
 
 
   return (

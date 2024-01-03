@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import EditorJS, { OutputData } from "@editorjs/editorjs";
 import { EDITOR_TOOLS } from "./EditorTools";
-import { createBrowserClient } from "@supabase/ssr";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 
 export default function Editor({ data, onChange, holder, edit, id }) {
@@ -12,10 +12,7 @@ export default function Editor({ data, onChange, holder, edit, id }) {
 
   //initialize editorjs
   useEffect(() => {
-    const supabase = createBrowserClient(
-      supabaseUrl || "",
-      supabaseAnonKey || ""
-    );
+    const supabase = createClientComponentClient();
 
     //initialize editor if we don't have a reference
     if (!ref.current) {
