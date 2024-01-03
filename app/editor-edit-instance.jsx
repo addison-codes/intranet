@@ -15,7 +15,7 @@ export default function EditorPage(id) {
   //state to hold output data. we'll use this for rendering later
   const [data, setData] = useState();
   if (id.initBlocks) {
-    const linkFix = id.initBlocks.replaceAll('http://localhost:3000', 'https://intranetstaging.allianceptp.com/')
+    const linkFix = id.initBlocks.replaceAll('https://intranet-aptp.vercel.app' , 'https://intranetstaging.allianceptp.com/')
     var jsonBlocks = JSON.parse(linkFix);
   }
   return (
