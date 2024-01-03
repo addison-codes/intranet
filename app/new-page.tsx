@@ -13,11 +13,12 @@ export default async function NewPage({ user }: { user: User }) {
   const addPage = async (formData: FormData) => {
     'use server'
     const title = String(formData.get('title'))
+    const printable = String(formData.get('clinic'))
     const departments = Number(formData.get('departments'))
     const document = Boolean((formData.get('document') == null ? false : true))
     const tags = formData.getAll('tags')
     const supabase = createServerActionClient<Database>({ cookies })
-    const { data } = await supabase.from('pages').insert({ title, departments, document, tags }).select()
+    const { data } = await supabase.from('pages').insert({ title, departments, document, tags, printable }).select()
     if (data) {
       redirect(`/pages/${data[0].id}/edit`)
     }
@@ -74,6 +75,10 @@ export default async function NewPage({ user }: { user: User }) {
             )}
           </select>
         </div>
+                <div className="w-full">
+          <input placeholder='Clinic' name='clinic' className="w-full px-2 ml-2 text-2xl leading-loose placeholder-gray-500 bg-inherit" />
+        </div>
+
       </div>
       <input className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" type="submit" value="Create Page" />
     </form>
