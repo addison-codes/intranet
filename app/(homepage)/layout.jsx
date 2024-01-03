@@ -36,6 +36,7 @@ export default async function RootLayout({
   if (session.user.email !== undefined) {
     const user = session.user.email.split('@')
     const name = user[0].split('.')
+  }
 
   return (
     <html lang="en" className={`${GeistSans.className} w-screen`}>
@@ -67,4 +68,4 @@ export default async function RootLayout({
       </body>
     </html>
   )
-}}
+}
