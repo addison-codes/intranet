@@ -15,7 +15,7 @@ function MsButton() {
     )
   }
   return (
-    <button type="button" onClick={handleSignIn} className='p-8 hover:bg-gray-800 rounded-xl'>
+    <button type="button" onClick={handleSignIn} className='p-8 mt-8 hover:bg-gray-800 rounded-xl'>
       <h1 className="text-xl">Sign In</h1>
       {/* <Image src='/github-mark-white.png' alt="github logo" width={100} height={100} /> */}
     </button>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Bug = () => {
   return (
-    <div className="flex flex-wrap justify-center mx-auto">
+    <div className="flex flex-wrap justify-center mx-auto mt-20">
       <div className="flex flex-col content-center mt-4">
         <button
           type="button"

@@ -3,6 +3,7 @@ import Dropdown from "./Dropdown"
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers"
 import Banner from "./Banner"
+import SearchNew from "./SearchNew"
 
 export default async function Header({ noimg }: { noimg?: boolean }) {
     const supabase = createServerComponentClient({ cookies })
@@ -45,12 +46,12 @@ export default async function Header({ noimg }: { noimg?: boolean }) {
             id='toggleMobileMenu'
             className='container order-3 hidden mx-auto text-white shadow-sm dark:bg-gray-900 md:block dark:border-gray-800 md:order-2'
           >
-            <div className='px-4 py-3 lg:px-6'>
+            <div className='px-4 py-3 pb-6 lg:px-6'>
               <div
                 id='mega-menu-full-image'
                 className='justify-between w-full pt-4 pl-6 place-items-center sm:hidden md:flex md:w-auto md:order-1'
               >
-                <ul className='flex flex-col font-medium list-none md:flex-row md:space-x-8 md:mt-0'>
+                <ul className='flex flex-col mb-0 font-medium list-none md:flex-row md:space-x-8 md:mt-0'>
                   <li>
                     <a
                       href='/'
@@ -136,6 +137,7 @@ export default async function Header({ noimg }: { noimg?: boolean }) {
                     </div>
                   )} */}
                   {/* <ToggleThemeButton /> */}
+                  <SearchNew />
                   {session?.user.email !== undefined ? (
                     <p className="block py-2 pl-3 pr-4 font-bold text-white no-underline capitalize border-b border-gray-100!">Welcome, {session.user.email.split('.')[0]} </p> ) : ''
                   }
