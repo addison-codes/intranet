@@ -4,7 +4,7 @@ import React from 'react';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import EditorPage from '@/app/editor-edit-instance';
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
@@ -23,7 +23,6 @@ const Pages = async ({ params }) => {
     const user = session.user.email.split('@')
     const name = user[0].split('.')
 
-  const supabase = createServerComponentClient({ cookies });
   const { data } = await supabase.from('pages').select().eq('id', params.id);
   const page = data[0];
 
