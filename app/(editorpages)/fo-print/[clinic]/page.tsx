@@ -17,7 +17,7 @@ export default async function Page({ params }: { params: any }) {
 
   return (
     <div className="">
-        <Table printable={'all'} />
+        <Table printable={'all'} range deptId />
     </div>
   );
 
