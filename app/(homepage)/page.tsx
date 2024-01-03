@@ -22,6 +22,7 @@ const Index = async () => {
     const user = session.user.email.split('@')
     const name = user[0].split('.')
   
+  
   return (
     <div className="flex flex-col items-center flex-1 w-full gap-20">
       {/* <nav className="flex justify-center w-full h-16 border-b border-b-foreground/10">
