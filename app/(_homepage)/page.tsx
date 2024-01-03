@@ -18,6 +18,8 @@ const Index = async () => {
     redirect('/login')
   }
 
+  console.log(session)
+
   if (session.user.email !== undefined) {
     const user = session.user.email.split('@')
     const name = user[0].split('.')
