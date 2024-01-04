@@ -3,9 +3,7 @@ import React from 'react';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 
-
 export const dynamic = 'force-dynamic';
-
 
 const Announcements = async () => {
 
@@ -13,14 +11,16 @@ const Announcements = async () => {
   const supabase = createServerComponentClient({ cookies });
   const { data } = await supabase.from('announcements').select('*');
 
+  console.log(data)
+
   const newsletter = data?.find((e) => {
-    return e.type === 'newsletter';
+    return e.type === 'Newsletter';
   });
   const ceo = data?.find((e) => {
-    return e.type === 'ceo';
+    return e.type === 'CEO';
   });
   const latest = data?.find((e) => {
-    return e.type === 'announcement';
+    return e.type === 'Announcement';
   });
 
   return (
@@ -51,7 +51,7 @@ const Announcements = async () => {
             <Image
               src={'/aoa.png'}
               alt='Aligning Our Alliance'
-              width={400}
+              width={380}
               height={200}
             />
             <div className='p-6'>
@@ -89,7 +89,7 @@ const Announcements = async () => {
             <Image
               src={'/ceo-desk.png'}
               alt='From the CEOs Desk'
-              width={400}
+              width={380}
               height={200}
             />
             <div className='p-6'>
@@ -127,7 +127,7 @@ const Announcements = async () => {
             <Image
               src={latest?.image ? latest?.image : '/generic-announcement.png'}
               alt='Latest Announcement'
-              width={400}
+              width={380}
               height={200}
               objectFit='cover'
             />

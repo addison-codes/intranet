@@ -44,7 +44,7 @@ const PreviousAnnouncements = () => {
                 ? 'bg-blue-500 text-white'
                 : 'bg-gray-200 text-gray-700'
             }`}
-            onClick={() => setSelectedType('ceo')}
+            onClick={() => setSelectedType('CEO')}
           >
             CEO
           </button>
@@ -54,7 +54,7 @@ const PreviousAnnouncements = () => {
                 ? 'bg-blue-500 text-white'
                 : 'bg-gray-200 text-gray-700'
             }`}
-            onClick={() => setSelectedType('newsletter')}
+            onClick={() => setSelectedType('Newsletter')}
           >
             Newsletter
           </button>
@@ -75,9 +75,9 @@ const PreviousAnnouncements = () => {
                       style={{
                         backgroundImage: announcement.image
                           ? `url(${announcement.image})`
-                          : announcement.type === 'ceo'
+                          : announcement.type === 'CEO'
                           ? `url('/favicon.png')`
-                          : announcement.type === 'newsletter'
+                          : announcement.type === 'Newsletter'
                           ? `url('/icons/intranet-icons_icon-newsletter.png')`
                           : `url('/icons/intranet-icons_icon-announcements.png')`
                       }}
