@@ -18,9 +18,12 @@ const Index = async () => {
     redirect('/login')
   }
 
+  console.log(session)
+
   if (session.user.email !== undefined) {
     const user = session.user.email.split('@')
     const name = user[0].split('.')
+  
   
   return (
     <div className="flex flex-col items-center flex-1 w-full gap-20">

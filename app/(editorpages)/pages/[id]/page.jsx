@@ -5,11 +5,23 @@ import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import EditorPage from '@/app/editor-edit-instance';
 
+import { redirect } from 'next/navigation';
+
 export const dynamic = 'force-dynamic';
 
 
 const Pages = async ({ params }) => {
-  const supabase = createServerComponentClient({ cookies });
+    const supabase = createServerComponentClient({ cookies })
+  const { data: { session } } = await supabase.auth.getSession()
+
+  if (!session) {
+    redirect('/login')
+  }
+
+  if (session.user.email !== undefined) {
+    const user = session.user.email.split('@')
+    const name = user[0].split('.')
+
   const { data } = await supabase.from('pages').select().eq('id', params.id);
   const page = data[0];
 
@@ -54,6 +66,7 @@ const Pages = async ({ params }) => {
       </div>
     </div>
   );
-};
+}
+}
 
 export default Pages;

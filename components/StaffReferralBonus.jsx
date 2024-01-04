@@ -3,7 +3,7 @@ import React from 'react'
 function StaffReferralBonus() {
   return (
             <div className='max-w-sm p-6 mx-auto mb-8 bg-white border rounded-lg shadow border-aptpblue dark:bg-gray-800 dark:border-gray-700'>
-              <a href='/9118cb1ec3424cfc850d837bbe263684'>
+              <a href='/pages/108'>
                 <h5 className='mt-0 mb-2 text-4xl font-bold tracking-tight text-gray-900 font-universSubheading dark:text-white'>
                   Staff Referral Bonus
                 </h5>
