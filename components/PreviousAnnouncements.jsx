@@ -13,8 +13,6 @@ const PreviousAnnouncements = () => {
     setAnnouncements(data)
   }
 
-  console.log(announcements)
-
   const data = announcements
   useEffect(() => {
     getAnnouncements()

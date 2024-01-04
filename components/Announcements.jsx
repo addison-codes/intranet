@@ -11,8 +11,6 @@ const Announcements = async () => {
   const supabase = createServerComponentClient({ cookies });
   const { data } = await supabase.from('announcements').select('*');
 
-  console.log(data)
-
   const newsletter = data?.find((e) => {
     return e.type === 'Newsletter';
   });

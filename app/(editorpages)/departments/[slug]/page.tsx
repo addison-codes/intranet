@@ -20,9 +20,6 @@ export default async function Page({ params }: { params: any }) {
     redirect('/login')
   }
 
-  console.log('dept', session)
-
-
   return (
     <div className="">
       <div className="flex justify-around mt-8">

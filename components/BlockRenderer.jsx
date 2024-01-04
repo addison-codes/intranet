@@ -9,7 +9,6 @@ export default function BlockRenderer ({ data }) {
   return (
     <div className="max-w-full prose">
       {blocks.map((item, index) => {
-        {/* console.log('item', item.data) */}
         if (typeof item.data === "text") {
           return (
             <div key={index}>
