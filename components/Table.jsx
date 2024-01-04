@@ -128,6 +128,15 @@ function Table({range, deptId, printable}) {
     setData(data)
   } else {
     const {data, error} = await supabase.from('pages').select().eq('document', true).eq('departments', deptId);
+    const {data: deps} = await supabase.from('departments').select('id, department_name');
+    data.forEach((row) => {
+      if (row.departments == null) {
+        row.departments = 'No Department'
+      } else {
+        const dep = deps.find((dep) => dep.id === row.departments)
+        row.departments = dep.department_name
+      }
+    })
     setData(data)
   }
   }
