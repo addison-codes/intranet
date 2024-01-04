@@ -10,6 +10,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      spacing: {
+        '128': '64rem',
+      },
       fontFamily: {
         universHeading: ['Univers-Heading', 'heading'],
         universSubheading: ['Univers-Subheading', 'subheading'],
