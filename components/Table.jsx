@@ -44,7 +44,6 @@ const columns = [
     header: () => 'tags',
     cell: ({ row }) => {
       return row.original.tags.map((e) => {
-        console.log(e)
         // const list = ''
         // list += IdToName(e.id) + ' '
         return (
@@ -120,12 +119,10 @@ function Table({range, deptId, printable}) {
         row.departments = 'No Department'
       } else {
         const dep = deps.find((dep) => dep.id === row.departments)
-        console.log(dep)
         row.departments = dep.department_name
       }
     })
     setData(data)
-    console.log(data)
   } else if (printable) {
     const {data, error} = await supabase.from('pages').select().eq('printable', printable);
     setData(data)
