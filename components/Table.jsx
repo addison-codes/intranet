@@ -35,16 +35,31 @@ const columns = [
     header: () => <span>Title</span>,
     footer: info => info.column.id,
   }),
-  columnHelper.accessor('tags', {
-    header: () => 'tags',
+  columnHelper.accessor('departments', {
+    header: () => 'Department',
     cell: info => info.renderValue(),
     footer: info => info.column.id,
   }),
-  // columnHelper.accessor('departments', {
-  //   header: () => 'Department',
-  //   cell: info => info.renderValue(),
-  //   footer: info => info.column.id,
-  // }),
+  columnHelper.accessor('tags', {
+    header: () => 'tags',
+    cell: ({ row }) => {
+      return row.original.tags.map((e) => {
+        console.log(e)
+        // const list = ''
+        // list += IdToName(e.id) + ' '
+        return (
+          <span
+            key={e}
+            className="bg-blue-100 text-aptpblue text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-aptpblue"
+          >
+            {e}
+          </span>
+        )
+      })
+    },    
+    footer: info => info.column.id,
+    enableColumnFilter: false,
+  }),
 ]
 
 const fuzzyFilter = (row, columnId, value, addMeta) => {
@@ -98,8 +113,19 @@ function Table({range, deptId, printable}) {
   const supabase = createClientComponentClient();
   if (deptId === '*') {
     const {data, error} = await supabase.from('pages').select(`
-    title, id, tags, departments!pages_departments_fkey ( id, department_name )`).eq('document', true);
+    title, id, tags, departments )`).eq('document', true);
+    const {data: deps} = await supabase.from('departments').select('id, department_name');
+    data.forEach((row) => {
+      if (row.departments == null) {
+        row.departments = 'No Department'
+      } else {
+        const dep = deps.find((dep) => dep.id === row.departments)
+        console.log(dep)
+        row.departments = dep.department_name
+      }
+    })
     setData(data)
+    console.log(data)
   } else if (printable) {
     const {data, error} = await supabase.from('pages').select().eq('printable', printable);
     setData(data)
@@ -127,8 +153,10 @@ function Table({range, deptId, printable}) {
     onColumnFiltersChange: setColumnFilters,
     globalFilterFn: fuzzyFilter,
     getFilteredRowModel: getFilteredRowModel(),
-
-    getCoreRowModel: getCoreRowModel()
+    onSortingChange: setSorting,
+    getSortedRowModel: getSortedRowModel(),
+    getCoreRowModel: getCoreRowModel(),
+    getFacetedUniqueValues: getFacetedUniqueValues()
   })
 
   return (
