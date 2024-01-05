@@ -9,7 +9,7 @@ const PreviousAnnouncements = () => {
 
   const getAnnouncements = async () => {
     const supabase = createClientComponentClient()
-    const { data } = await supabase.from('announcements').select('*') 
+    const { data } = await supabase.from('announcements').select('*').order('created_at', {ascending: false})
     setAnnouncements(data)
   }
 
