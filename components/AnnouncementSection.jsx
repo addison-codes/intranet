@@ -39,9 +39,9 @@ const AnnouncementSection = async () => {
                   style={{
                     backgroundImage: announcement.image
                       ? `url(${announcement.image})`
-                      : announcement.type === 'ceo'
+                      : announcement.type === 'CEO'
                         ? `url('/favicon.png')`
-                        : announcement.type === 'newsletter'
+                        : announcement.type === 'Newsletter'
                           ? `url('/icons/intranet-icons_icon-newsletter.png')`
                           : `url('/icons/intranet-icons_icon-announcements.png')`
                   }}

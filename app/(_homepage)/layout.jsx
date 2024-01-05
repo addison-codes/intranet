@@ -25,19 +25,6 @@ export const metadata = {
 export default async function RootLayout({
   children,
 }) {
-  //   const supabase = createServerComponentClient({ cookies })
-  // const { data: { session } } = await supabase.auth.getSession()
-
-  // if (!session) {
-  //   redirect('/login')
-  // }
-
-  // console.log(session.user)
-  // if (session.user.email !== undefined) {
-  //   const user = session.user.email.split('@')
-  //   const name = user[0].split('.')
-  // }
-
   return (
     <html lang="en" className={`${GeistSans.className} w-screen`}>
       <head>

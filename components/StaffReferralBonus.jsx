@@ -12,7 +12,7 @@ function StaffReferralBonus() {
                 Refer your friends and get rewarded!
               </p>
               <a
-                href='/9118cb1ec3424cfc850d837bbe263684'
+                href='/pages/108'
                 className='inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-aptpblue hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-aptpblue dark:focus:ring-blue-800'
               >
                 Read more

@@ -184,7 +184,7 @@ export default async function Header({ noimg }: { noimg?: boolean }) {
                       href='/departments/clinical-operations'
                       className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
-                      Clinical Operations
+                      Operations
                     </a>
                     <p>
                       View resources, forms, and updates regarding our clinical

@@ -59,6 +59,43 @@ let column_tools = {
       inlineToolbar: true,
     },
     iframe: Iframe,
+    image: {
+    class: ImageTool,
+    config: {
+      /**
+       * Custom uploader
+       */
+      uploader: {
+
+        uploadByFile(file){
+          // your own uploading logic here
+          return handleImageUpload(file).then((data) => {
+            return {
+              success: 1,
+              file: {
+                url: `https://kpifzufhdtskjhvmjorm.supabase.co/storage/v1/object/public/images/${data.path}`,
+                // any other image data you want to store, such as width, height, color, extension, etc
+              }
+            }
+          })
+
+        },
+
+        uploadByUrl(url){
+          // your ajax request for uploading
+          return MyAjax.upload(file).then(() => {
+            return {
+              success: 1,
+              file: {
+                url: 'https://codex.so/upload/redactor_images/o_e48549d1855c7fc1807308dd14990126.jpg',
+                // any other image data you want to store, such as width, height, color, extension, etc
+              }
+            }
+          })
+        }
+      }
+    }
+  }
 }
 
 

@@ -10,8 +10,10 @@ const SearchNew = () => {
   const setSearch = async (e) => {
     console.log(e)
   // e.preventDefault()
+  const searchString = e.replace(/ /g, ' <-> ' )
+  console.log('search', searchString)
   const supabase = createClientComponentClient()
-  const { data } = await supabase.from('pages').select().textSearch('title_blocks', e)
+  const { data } = await supabase.from('pages').select().textSearch('title_blocks', `'${searchString}'`)
   setResults(data)
   console.log('searchdata', data)
   }
