@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
         <div className='container px-2 mx-auto sm:px-0'>
-          <div className='container grid gap-8 pt-4 mx-auto md:grid-cols-5'>
+          {/* <div className='container grid gap-8 pt-4 mx-auto md:grid-cols-5'>
             <div className='col-span-4 '>
               {children}
             </div>
@@ -22,7 +22,7 @@ export default function RootLayout({
               <StaffReferralBonus />
               <Sidebar />
             </div>
-          </div>
+          </div> */}
         </div>
 
   )
