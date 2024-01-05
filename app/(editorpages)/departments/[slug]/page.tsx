@@ -27,9 +27,9 @@ export default async function Page({ params }: { params: any }) {
       </div>
         <EditorPage id={dep.main_page} initBlocks={dep.main_page.blocks} edit={false} />
         <Table deptId={dep.id} printable={false} range />
-        <div className="mt-8">
+        {/* <div className="mt-8">
           <a className='text-white mt-8 bg-aptpblue hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-aptpblue focus:outline-none dark:focus:ring-blue-800' href={`/pages/${dep.main_page.id}/edit`}>Edit Page</a>
-        </div>
+        </div> */}
     </div>
   );
 
