@@ -1,12 +1,9 @@
+'use client'
+
 import Sidebar from '@/components/Sidebar'
 import StaffReferralBonus from '@/components/StaffReferralBonus'
 import '../../globals.css'
 
-
-export const metadata = {
-  title: 'Alliance PTP Intranet',
-  description: 'Intranet for communication and collaboration within Alliance PTP',
-}
 export default function RootLayout({
   children,
 }: {
