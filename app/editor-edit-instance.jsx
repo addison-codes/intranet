@@ -16,6 +16,7 @@ export default function EditorPage(id) {
   const [data, setData] = useState();
   if (id.initBlocks) {
     const linkFix = id.initBlocks.replaceAll('https://intranetstaging.allianceptp.com/' , 'https://intranet.allianceptp.com/')
+    console.log('blocks', linkFix)
     var jsonBlocks = JSON.parse(linkFix);
   }
   return (
