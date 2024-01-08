@@ -101,3 +101,7 @@ a {
 .cdx-alert__message a {
   background: none !important;
 }
+
+.cdx-attaches__file-info:after {
+  content: " - Click Arrow to Download";
+}
