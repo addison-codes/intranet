@@ -49,7 +49,7 @@ const Announcements = async () => {
             <Image
               src={'/aoa.png'}
               alt='Aligning Our Alliance'
-              width={380}
+              width={385}
               height={200}
             />
             <div className='p-6'>
@@ -87,7 +87,7 @@ const Announcements = async () => {
             <Image
               src={'/ceo-desk.png'}
               alt='From the CEOs Desk'
-              width={380}
+              width={385}
               height={200}
             />
             <div className='p-6'>
@@ -125,7 +125,7 @@ const Announcements = async () => {
             <Image
               src={latest?.image ? latest?.image : '/generic-announcement.png'}
               alt='Latest Announcement'
-              width={380}
+              width={385}
               height={200}
               objectFit='cover'
             />
