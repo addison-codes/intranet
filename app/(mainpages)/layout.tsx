@@ -4,16 +4,32 @@ import Header from '@/components/Header'
 import APTQI from '@/components/APTQI'
 import Footer from '@/components/Footer'
 import Script from 'next/script'
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation'
+
+
 
 export const metadata = {
   title: 'Alliance PTP Intranet',
   description: 'Intranet for communication and collaboration within Alliance PTP',
 }
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+    const supabase = createServerComponentClient({ cookies })
+  const { data: { session } } = await supabase.auth.getSession()
+
+  if (!session) {
+    redirect('/login')
+  }
+
+  if (session.user.email !== undefined) {
+    const user = session.user.email.split('@')
+    const name = user[0].split('.')
+
   return (
     <html lang="en" className={GeistSans.className}>
       <head>
@@ -33,4 +49,5 @@ export default function RootLayout({
       </body>
     </html>
   )
+}
 }

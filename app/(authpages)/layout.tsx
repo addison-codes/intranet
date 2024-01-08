@@ -7,11 +7,7 @@ import Sidebar from '@/components/Sidebar'
 import SocialFeed from '@/components/SocialFeed'
 import DailyQuote from '@/components/DailyQuote'
 import Footer from '@/components/Footer'
-import ReviewCarousel from '@/components/Carousel'
 import Script from 'next/script'
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { cookies } from 'next/headers'
-import { redirect } from 'next/navigation'
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -24,18 +20,10 @@ export const metadata = {
 }
 export default async function RootLayout({
   children,
+}: {
+  children: React.ReactNode
 }) {
 
-    const supabase = createServerComponentClient({ cookies })
-  const { data: { session } } = await supabase.auth.getSession()
-
-  if (!session) {
-    redirect('/login')
-  }
-
-  if (session.user.email !== undefined) {
-    const user = session.user.email.split('@')
-    const name = user[0].split('.')
 
   return (
     <html lang="en" className={`${GeistSans.className} w-screen`}>
@@ -45,17 +33,7 @@ export default async function RootLayout({
       <body className="w-full m-0 bg-background text-foreground">
         <Header />
         <div className='container px-2 mx-auto sm:px-0'>
-          <div className='container grid gap-8 pt-4 mx-auto md:grid-cols-5'>
-            <div className="flex-col hidden sm:flex">
-              <DailyQuote />
-              <SocialFeed />
-              <ClinicOfMonth />
-            </div>
-            <div className='col-span-3 '>
               {children}
-            </div>
-            <Sidebar />
-          </div>
         </div>
       
       <Footer />
@@ -67,5 +45,4 @@ export default async function RootLayout({
       </body>
     </html>
   )
-}
 }
