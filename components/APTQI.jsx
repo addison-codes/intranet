@@ -34,7 +34,9 @@ const APTQI = () => {
           <a href='https://www.aptqi.com/take-action/' rel='nofollow' target='_blank'>Take action alongside us</a>
         </button>
         </p>
-        <Image alt='APTQI' width={200} height={100} src={'/APTQI_Logo.svg'} />
+        <a href="https://www.aptqi.com/take-action/">
+          <Image alt='APTQI' width={200} height={100} src={'/APTQI_Logo.svg'} />
+        </a>
       </div>
     </div>
   )
