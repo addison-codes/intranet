@@ -49,7 +49,7 @@ export default async function RootLayout({
             <div className="flex-col hidden sm:flex">
               <DailyQuote />
               <SocialFeed />
-              <ClinicOfMonth />
+              {/* <ClinicOfMonth /> */}
             </div>
             <div className='col-span-3 '>
               {children}
