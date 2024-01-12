@@ -80,3 +80,28 @@ a {
     display: inline !important;
 }
 }
+
+/* Special Styling */
+
+#3e9a63ce-041f-4fd9-8982-7877d16c9305 {
+  background-color: rgba(10, 124, 186, 0.4) !important;
+  background-opacity: 0.5 !important;
+}
+
+#02d741c8-d24a-4797-933c-6a949ab6e3fd {
+  background-color: rgba(238, 76, 36, 0.4) !important;
+  background-opacity: 0.5 !important;
+}
+
+#96669a07-95a3-4e99-b707-d13a54943845 {
+  background-color: rgba(143, 73, 156, 0.4) !important;
+  background-opacity: 0.5 !important;
+}
+
+.cdx-alert__message a {
+  background: none !important;
+}
+
+.cdx-attaches__file-info:after {
+  content: " - Click Arrow to Download";
+}

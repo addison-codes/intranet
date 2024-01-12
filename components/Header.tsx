@@ -10,7 +10,7 @@ export default async function Header({ noimg }: { noimg?: boolean }) {
   const { data: { session } } = await supabase.auth.getSession()
 
   return (
-    <div className="flex flex-col items-center gap-16">
+    <div className="sticky top-0 z-20">
       <header className={'flex flex-col w-full'}>
       {/* <Banner /> */}
         <nav className='container sticky top-0 order-1 px-4 mx-auto border-gray-200 lg:px-6 dark:bg-gray-900 dark:border-gray-800'>

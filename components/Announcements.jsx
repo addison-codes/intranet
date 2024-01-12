@@ -43,13 +43,13 @@ const Announcements = async () => {
       ) : (
         ''
       )} */}
-      <div className='container flex flex-wrap gap-8 md:flex-nowrap'>
+      <div className='container flex flex-wrap justify-around gap-8 md:flex-nowrap'>
         <div className='relative w-full max-w-sm transition-all bg-white border border-gray-200 rounded shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105'>
           <a href={`/announcements/${newsletter?.id}`}>
             <Image
               src={'/aoa.png'}
               alt='Aligning Our Alliance'
-              width={380}
+              width={385}
               height={200}
             />
             <div className='p-6'>
@@ -87,7 +87,7 @@ const Announcements = async () => {
             <Image
               src={'/ceo-desk.png'}
               alt='From the CEOs Desk'
-              width={380}
+              width={385}
               height={200}
             />
             <div className='p-6'>
@@ -125,7 +125,7 @@ const Announcements = async () => {
             <Image
               src={latest?.image ? latest?.image : '/generic-announcement.png'}
               alt='Latest Announcement'
-              width={380}
+              width={385}
               height={200}
               objectFit='cover'
             />
