@@ -1,14 +1,14 @@
 import React from 'react';
-import { createServerComponentClient } from '@supabase/supabase-js';
-import { cookies } from 'next/headers';
+// import { createServerComponentClient } from '@supabase/supabase-js';
+// import { cookies } from 'next/headers';
 
 const Bug = async () => {
-  const supabase = createServerComponentClient({ cookies });
-  const { data: { session } } = await supabase.auth.getSession();
-  const id = session.user.id;
-  console.log('id', id);
-  const { data } = await supabase.from('profiles').select().eq('id', id);
-  console.log('profile', data);
+  // const supabase = createServerComponentClient({ cookies });
+  // const { data: { session } } = await supabase.auth.getSession();
+  // const id = session.user.id;
+  // console.log('id', id);
+  // const { data } = await supabase.from('profiles').select().eq('id', id);
+  // console.log('profile', data);
 
 
   return (
