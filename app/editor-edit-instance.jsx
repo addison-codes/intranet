@@ -15,9 +15,8 @@ export default function EditorPage(id) {
   //state to hold output data. we'll use this for rendering later
   const [data, setData] = useState();
   if (id.initBlocks) {
-    const linkFix = id.initBlocks.replaceAll('https://intranetstaging.allianceptp.com/' , 'https://intranet.allianceptp.com/')
-    const downloadFix = linkFix.replaceAll('https://intranet.allianceptp.com/download/' , 'https://intranetstaging.allianceptp.com/download/')
-    console.log('blocks', linkFix.blocks)
+    const linkFix = id.initBlocks.replaceAll('https://intranetstaging.allianceptp.com/', 'https://intranet.allianceptp.com/');
+    const downloadFix = linkFix.replaceAll('https://intranet.allianceptp.com/download/', 'https://intranetstaging.allianceptp.com/download/');
     var jsonBlocks = JSON.parse(linkFix);
   }
   return (
