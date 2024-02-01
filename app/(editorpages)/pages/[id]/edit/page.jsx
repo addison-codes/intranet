@@ -12,6 +12,16 @@ const Pages = async ({ params }) => {
   const supabase = createServerComponentClient({ cookies });
   const { data } = await supabase.from('pages').select().eq('id', params.id);
   const page = data[0];
+  
+  const { data: { session } } = await supabase.auth.getSession()
+  
+  if (session.user.email !== undefined) {
+    const user = session.user.email.split('@')
+  }
+  
+  const { data: { profile } } = await supabase.from('profiles').select().eq('id', session.user.user_id);
+
+  console.log(profile)
 
   const addToPage = async (formData) => {
     'use server';
