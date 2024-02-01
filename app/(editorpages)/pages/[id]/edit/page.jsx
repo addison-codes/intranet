@@ -4,6 +4,7 @@ import React from 'react';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import EditorPage from '@/app/editor-edit-instance';
+import { redirect } from 'next/navigation'
 
 export const dynamic = 'force-dynamic';
 
@@ -19,9 +20,13 @@ const Pages = async ({ params }) => {
     const user = session.user.email.split('@')
   }
   
-  const { data: { profile } } = await supabase.from('profiles').select().eq('id', session.user.user_id);
+  const profile = await supabase.from('profiles').select().eq('id', session.user.id);
 
-  console.log(profile)
+    if (!profile.data[0].role === 'admin') {
+    redirect('/login')
+  }
+
+  console.log('pro', profile.data[0].role)
 
   const addToPage = async (formData) => {
     'use server';
