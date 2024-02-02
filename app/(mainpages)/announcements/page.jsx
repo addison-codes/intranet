@@ -9,9 +9,10 @@ export const dynamic = 'force-dynamic';
 export default async function Announcements() {
     const supabase = createServerComponentClient({ cookies })
   const { data: { session } } = await supabase.auth.getSession()
+  const profile = await supabase.from('profiles').select().eq('id', session.user.id);
 
-  if (!session) {
-    redirect('/login')
+  if (profile.data[0].role !== 'admin') {
+    redirect(`/`)
   }
 
   if (session.user.email !== undefined) {
