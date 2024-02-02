@@ -13,6 +13,7 @@ export const dynamic = 'force-dynamic';
 const Pages = async ({ params }) => {
     const supabase = createServerComponentClient({ cookies })
   const { data: { session } } = await supabase.auth.getSession()
+  const profile = await supabase.from('profiles').select().eq('id', session.user.id);
 
   if (!session) {
     redirect('/login')
@@ -63,6 +64,13 @@ const Pages = async ({ params }) => {
           {/* TODO: Need to get the initial page blocks sent to the editor */}
         </div>
         <EditorPage id={params.id} initBlocks={page?.blocks} edit={false} />
+        {profile.data && profile.data[0].role === 'admin' ? (
+          <div className="mt-8">
+            <a className='text-white mt-8 bg-aptpblue hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-aptpblue focus:outline-none dark:focus:ring-blue-800' href={`/pages/${params.id}/edit`}>Edit Page</a>
+          </div>
+        ) : ''
+        }
+
       </div>
     </div>
   );
