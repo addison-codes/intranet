@@ -16,17 +16,11 @@ const Pages = async ({ params }) => {
   
   const { data: { session } } = await supabase.auth.getSession()
   
-  if (session.user.email !== undefined) {
-    const user = session.user.email.split('@')
-  }
-  
   const profile = await supabase.from('profiles').select().eq('id', session.user.id);
 
-    if (!profile.data[0].role === 'admin') {
-    redirect('/login')
+    if (profile.data[0].role !== 'admin') {
+    redirect(`/pages/${params.id}`)
   }
-
-  console.log('pro', profile.data[0].role)
 
   const addToPage = async (formData) => {
     'use server';
