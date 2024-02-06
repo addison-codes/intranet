@@ -6,7 +6,9 @@ const Bug = async () => {
   const supabase = createServerComponentClient({ cookies });
   const { data: { session } } = await supabase.auth.getSession();
 
-  const profile = await supabase.from('profiles').select().eq('id', session.user.id);
+  if (session) {
+    var profile = await supabase.from('profiles').select().eq('id', session.user.id);
+  }
 
 
   return (
@@ -24,7 +26,7 @@ const Bug = async () => {
         >
           <a href='/documents'>Documents</a>
         </button>
-        {profile.data[0].role === 'admin' ? (
+        {profile !== undefined && profile.data[0].role === 'admin' ? (
           <button
             type="button"
             className="text-white bg-aptpred border-b border-gray-200 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-aptpblue focus:outline-none dark:focus:ring-blue-800 center"
