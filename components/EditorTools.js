@@ -4,7 +4,7 @@ import Delimiter from "@editorjs/delimiter";
 import Embed from "@editorjs/embed";
 import ImageTool from "@editorjs/image";
 import InlineCode from "@editorjs/inline-code";
-import Link from "@editorjs/link";
+// import Link from "@editorjs/link";
 import List from "@editorjs/list";
 import Quote from "@editorjs/quote";
 import SimpleImage from "@editorjs/simple-image";
@@ -215,7 +215,7 @@ export const EDITOR_TOOLS = {
     }
   },
   inlineCode: InlineCode,
-  link: Link,
+  // link: Link,
   table: Table,
   list: List,
   quote: Quote,

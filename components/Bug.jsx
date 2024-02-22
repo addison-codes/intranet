@@ -39,7 +39,13 @@ const Bug = async () => {
           type="button"
           className="text-white bg-aptpred border-b border-gray-200 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-aptpblue focus:outline-none dark:focus:ring-blue-800 center"
         >
-          <a href='/comment'>Submit a suggestion or bug</a>
+          <a href='/comment'>Submit a Bug Report</a>
+        </button>
+        <button
+          type="button"
+          className="text-white bg-aptpred border-b border-gray-200 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-aptpblue focus:outline-none dark:focus:ring-blue-800 center"
+        >
+          <a href='/page-request'>Request a Page or Document to be Added</a>
         </button>
       </div>
 
