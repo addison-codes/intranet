@@ -69,6 +69,12 @@ function Pathways({ }: Props) {
         >
           I need to get in touch with someone for a patient's billing concerns...
         </a>
+        <a
+          href="/page-request"
+          className="block w-full px-1 py-2 border-b border-gray-200 rounded-b-lg cursor-pointer hover:bg-gray-100 hover:text-aptpblue focus:outline-none focus:ring-2 focus:ring-aptpblue focus:text-aptpblue dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+        >
+          I would like a new page or document to be added to the intranet...
+        </a>
       </div>
     </div>
   )
