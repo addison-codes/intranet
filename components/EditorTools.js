@@ -48,7 +48,7 @@ let column_tools = {
       inlineToolbar: true,
     },
     delimiter : Delimiter,
-    link: Link,
+    // link: Link,
     hyperlink: {
       class: Hyperlink,
       config: {
