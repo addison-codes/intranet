@@ -60,7 +60,7 @@ let column_tools = {
     },
     iframe: Iframe,
     image: {
-    class: ImageTool,
+    class: ImageTool, 
     config: {
       /**
        * Custom uploader
