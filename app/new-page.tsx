@@ -76,7 +76,7 @@ export default async function NewPage({ user }: { user: User }) {
           </select>
         </div>
                 <div className="w-full">
-          <input placeholder='Clinic' name='clinic' className="w-full px-2 ml-2 text-2xl leading-loose placeholder-gray-500 bg-inherit" />
+          <input placeholder='Clinic (for documents)' name='clinic' className="w-full px-2 ml-2 text-2xl leading-loose placeholder-gray-500 bg-inherit" />
         </div>
 
       </div>
