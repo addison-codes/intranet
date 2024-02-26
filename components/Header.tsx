@@ -10,8 +10,9 @@ export default async function Header({ noimg }: { noimg?: boolean }) {
   const { data: { session } } = await supabase.auth.getSession()
 
   return (
+    <>
     <div className="sticky top-0 z-20">
-      <header className={'flex flex-col w-full'}>
+      <header className={'flex sticky flex-col w-full'}>
       {/* <Banner /> */}
         <nav className='container sticky top-0 order-1 px-4 mx-auto border-gray-200 lg:px-6 dark:bg-gray-900 dark:border-gray-800'>
           <div className='flex items-center justify-between'>
@@ -328,14 +329,15 @@ export default async function Header({ noimg }: { noimg?: boolean }) {
             </div>
           </nav>
         </div>
-        {noimg ? "" : (
-          <div className="relative hidden w-full h-48 sm:block">
-            <Image priority src='/stronger-together.png' alt='Alliance PTP Logo' fill={true} />
-          </div>
-        )
-        }
 
       </header>
     </div>
+        {noimg ? "" : (
+          <div className="relative hidden object-cover w-full h-48 sm:block">
+            <Image className="object-cover" priority src='/stronger-together.png' alt='Alliance PTP Logo' fill={true} />
+          </div>
+        )
+        }
+        </>
   )
 }
