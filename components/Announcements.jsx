@@ -10,6 +10,7 @@ const Announcements = async () => {
 
   const supabase = createServerComponentClient({ cookies });
   const { data } = await supabase.from('announcements').select('*');
+  const { data: { session } } = await supabase.auth.getSession();
 
   const newsletter = data?.find((e) => {
     return e.type === 'Newsletter';
@@ -21,28 +22,22 @@ const Announcements = async () => {
     return e.type === 'Announcement';
   });
 
+  if (session) {
+    var profile = await supabase.from('profiles').select().eq('id', session.user.id);
+  }
+
   return (
     <div className='mt-4'>
-      {/* {session?.user?.name ===
-      ('Addison Wanlass' ||
-        'Samantha Lewakowski' ||
-        'Richard Leaver' ||
-        'Anthony Placek' ||
-        'Linda Kerrick' ||
-        'Tiffany Warden' ||
-        'Jami Farkas' ||
-        'Benjamin Fedewa' ||
-        'Terry Tyler' ||
-        'Gretchen Walsh' || 'Catie Butler' || 'Cameron Smith') ? (
+      {profile !== undefined && profile.data[0].role === 'admin' ? (
         <button
           type='button'
-          className='text-white ml-4 sm:ml-0 bg-aptpblue hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-aptpblue focus:outline-none dark:focus:ring-blue-800'
+          className='mb-4 inline-flex items-center justify-center w-48 mx-auto px-3 py-2 text-sm font-medium text-center text-white bg-aptpblue rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-aptpblue dark:focus:ring-blue-800 border-none text-bold'
         >
-          <a href='/new-announcement'>New Announcement</a>
+          <a className='font-bold' href='/announcements'>New Announcement</a>
         </button>
       ) : (
         ''
-      )} */}
+      )}
       <div className='container flex flex-wrap justify-around gap-8 md:flex-nowrap'>
         <div className='relative w-full max-w-sm transition-all bg-white border border-gray-200 rounded shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105'>
           <a href={`/announcements/${newsletter?.id}`}>
