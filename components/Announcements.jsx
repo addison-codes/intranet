@@ -9,7 +9,7 @@ const Announcements = async () => {
 
 
   const supabase = createServerComponentClient({ cookies });
-  const { data } = await supabase.from('announcements').select('*');
+  const { data } = await supabase.from('announcements').select('*').order('created_at', { ascending: false });
   const { data: { session } } = await supabase.auth.getSession();
 
   const newsletter = data?.find((e) => {
@@ -48,7 +48,6 @@ const Announcements = async () => {
               height={200}
             />
             <div className='p-6'>
-              <p className='pb-2 text-sm text-gray-400'>{newsletter?.date?.split(' ')[0]}</p>
               <h5 className='mb-4 text-2xl font-bold tracking-tight font-universSubheading drop-shadow-sm w-60 dark:text-white'>
                 {newsletter?.title}
               </h5>
@@ -56,7 +55,7 @@ const Announcements = async () => {
               <p className='mb-12 font-normal text-gray-700 dark:text-gray-400'>
                 {newsletter?.excerpt ?? 'Check out the latest newsletter!'}
               </p>
-              <p className='absolute bottom-[20px] mt-4 left-0 right-0 inline-flex items-center justify-center w-48 mx-auto px-3 py-2 text-sm font-medium text-center text-white bg-aptpblue rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-aptpblue dark:focus:ring-blue-800'>
+              <p className='bottom-[20px] mt-4 left-0 right-0 inline-flex items-center justify-center w-48 mx-auto px-3 py-2 text-sm font-medium text-center text-white bg-aptpblue rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-aptpblue dark:focus:ring-blue-800'>
                 Read more
                 <svg
                   className='w-3.5 h-3.5 ml-2'
@@ -86,7 +85,6 @@ const Announcements = async () => {
               height={200}
             />
             <div className='p-6'>
-              <p className='pb-2 text-sm text-gray-400'>{ceo?.date?.split(' ')[0]}</p>
               <h5 className='mb-4 text-2xl font-bold tracking-tight font-universSubheading drop-shadow-sm w-60 dark:text-white'>
                 {ceo?.title}
               </h5>
@@ -94,7 +92,7 @@ const Announcements = async () => {
               <p className='mb-12 font-normal text-gray-700 dark:text-gray-400'>
                 {ceo?.excerpt ?? 'Check out the latest CEO communication!'}
               </p>
-              <p className='absolute bottom-[20px] mt-4 left-0 right-0 inline-flex items-center justify-center w-48 mx-auto px-3 py-2 text-sm font-medium text-center text-white bg-aptpblue rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-aptpblue dark:focus:ring-blue-800'>
+              <p className='bottom-[20px] mt-4 left-0 right-0 inline-flex items-center justify-center w-48 mx-auto px-3 py-2 text-sm font-medium text-center text-white bg-aptpblue rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-aptpblue dark:focus:ring-blue-800'>
                 Read more
                 <svg
                   className='w-3.5 h-3.5 ml-2'
@@ -125,7 +123,6 @@ const Announcements = async () => {
               objectFit='cover'
             />
             <div className='p-6'>
-              <p className='pb-2 text-sm text-gray-400'>{latest?.date?.split(' ')[0]}</p>
               <h5 className='mb-4 text-2xl font-bold tracking-tight font-universSubheading drop-shadow-sm w-60 dark:text-white'>
                 {latest?.title}
               </h5>
@@ -133,7 +130,7 @@ const Announcements = async () => {
               <p className='mb-12 font-normal text-gray-700 dark:text-gray-400'>
                 {latest?.excerpt ?? 'Check out the latest announcement!'}
               </p>
-              <p className='absolute bottom-[20px] mt-4 left-0 right-0 inline-flex items-center justify-center w-48 mx-auto px-3 py-2 text-sm font-medium text-center text-white bg-aptpblue rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-aptpblue dark:focus:ring-blue-800'>
+              <p className='bottom-[20px] mt-4 left-0 right-0 inline-flex items-center justify-center w-48 mx-auto px-3 py-2 text-sm font-medium text-center text-white bg-aptpblue rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-aptpblue dark:focus:ring-blue-800'>
                 Read more
                 <svg
                   className='w-3.5 h-3.5 ml-2'
