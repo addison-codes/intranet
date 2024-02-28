@@ -9,7 +9,8 @@ const Announcements = async () => {
 
 
   const supabase = createServerComponentClient({ cookies });
-  const { data } = await supabase.from('announcements').select('*');
+  const { data } = await supabase.from('announcements').select('*').order('created_at', { ascending: false });
+  const { data: { session } } = await supabase.auth.getSession();
 
   const newsletter = data?.find((e) => {
     return e.type === 'Newsletter';
@@ -21,28 +22,22 @@ const Announcements = async () => {
     return e.type === 'Announcement';
   });
 
+  if (session) {
+    var profile = await supabase.from('profiles').select().eq('id', session.user.id);
+  }
+
   return (
     <div className='mt-4'>
-      {/* {session?.user?.name ===
-      ('Addison Wanlass' ||
-        'Samantha Lewakowski' ||
-        'Richard Leaver' ||
-        'Anthony Placek' ||
-        'Linda Kerrick' ||
-        'Tiffany Warden' ||
-        'Jami Farkas' ||
-        'Benjamin Fedewa' ||
-        'Terry Tyler' ||
-        'Gretchen Walsh' || 'Catie Butler' || 'Cameron Smith') ? (
+      {profile !== undefined && profile.data[0].role === 'admin' ? (
         <button
           type='button'
-          className='text-white ml-4 sm:ml-0 bg-aptpblue hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-aptpblue focus:outline-none dark:focus:ring-blue-800'
+          className='mb-4 inline-flex items-center justify-center w-48 mx-auto px-3 py-2 text-sm font-medium text-center text-white bg-aptpblue rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-aptpblue dark:focus:ring-blue-800 border-none text-bold'
         >
-          <a href='/new-announcement'>New Announcement</a>
+          <a className='font-bold' href='/announcements'>New Announcement</a>
         </button>
       ) : (
         ''
-      )} */}
+      )}
       <div className='container flex flex-wrap justify-around gap-8 md:flex-nowrap'>
         <div className='relative w-full max-w-sm transition-all bg-white border border-gray-200 rounded shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105'>
           <a href={`/announcements/${newsletter?.id}`}>
@@ -53,7 +48,6 @@ const Announcements = async () => {
               height={200}
             />
             <div className='p-6'>
-              <p className='pb-2 text-sm text-gray-400'>{newsletter?.date?.split(' ')[0]}</p>
               <h5 className='mb-4 text-2xl font-bold tracking-tight font-universSubheading drop-shadow-sm w-60 dark:text-white'>
                 {newsletter?.title}
               </h5>
@@ -61,7 +55,7 @@ const Announcements = async () => {
               <p className='mb-12 font-normal text-gray-700 dark:text-gray-400'>
                 {newsletter?.excerpt ?? 'Check out the latest newsletter!'}
               </p>
-              <p className='absolute bottom-[20px] mt-4 left-0 right-0 inline-flex items-center justify-center w-48 mx-auto px-3 py-2 text-sm font-medium text-center text-white bg-aptpblue rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-aptpblue dark:focus:ring-blue-800'>
+              <p className='bottom-[20px] mt-4 left-0 right-0 inline-flex items-center justify-center w-48 mx-auto px-3 py-2 text-sm font-medium text-center text-white bg-aptpblue rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-aptpblue dark:focus:ring-blue-800'>
                 Read more
                 <svg
                   className='w-3.5 h-3.5 ml-2'
@@ -91,7 +85,6 @@ const Announcements = async () => {
               height={200}
             />
             <div className='p-6'>
-              <p className='pb-2 text-sm text-gray-400'>{ceo?.date?.split(' ')[0]}</p>
               <h5 className='mb-4 text-2xl font-bold tracking-tight font-universSubheading drop-shadow-sm w-60 dark:text-white'>
                 {ceo?.title}
               </h5>
@@ -99,7 +92,7 @@ const Announcements = async () => {
               <p className='mb-12 font-normal text-gray-700 dark:text-gray-400'>
                 {ceo?.excerpt ?? 'Check out the latest CEO communication!'}
               </p>
-              <p className='absolute bottom-[20px] mt-4 left-0 right-0 inline-flex items-center justify-center w-48 mx-auto px-3 py-2 text-sm font-medium text-center text-white bg-aptpblue rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-aptpblue dark:focus:ring-blue-800'>
+              <p className='bottom-[20px] mt-4 left-0 right-0 inline-flex items-center justify-center w-48 mx-auto px-3 py-2 text-sm font-medium text-center text-white bg-aptpblue rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-aptpblue dark:focus:ring-blue-800'>
                 Read more
                 <svg
                   className='w-3.5 h-3.5 ml-2'
@@ -130,7 +123,6 @@ const Announcements = async () => {
               objectFit='cover'
             />
             <div className='p-6'>
-              <p className='pb-2 text-sm text-gray-400'>{latest?.date?.split(' ')[0]}</p>
               <h5 className='mb-4 text-2xl font-bold tracking-tight font-universSubheading drop-shadow-sm w-60 dark:text-white'>
                 {latest?.title}
               </h5>
@@ -138,7 +130,7 @@ const Announcements = async () => {
               <p className='mb-12 font-normal text-gray-700 dark:text-gray-400'>
                 {latest?.excerpt ?? 'Check out the latest announcement!'}
               </p>
-              <p className='absolute bottom-[20px] mt-4 left-0 right-0 inline-flex items-center justify-center w-48 mx-auto px-3 py-2 text-sm font-medium text-center text-white bg-aptpblue rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-aptpblue dark:focus:ring-blue-800'>
+              <p className='bottom-[20px] mt-4 left-0 right-0 inline-flex items-center justify-center w-48 mx-auto px-3 py-2 text-sm font-medium text-center text-white bg-aptpblue rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-aptpblue dark:focus:ring-blue-800'>
                 Read more
                 <svg
                   className='w-3.5 h-3.5 ml-2'

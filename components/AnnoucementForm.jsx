@@ -1,13 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 
 
 import { Editor } from '@tinymce/tinymce-react';
 import { useForm } from 'react-hook-form';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 
 // import dynamic from 'next/dynamic';
@@ -21,6 +22,7 @@ import { useForm } from 'react-hook-form';
 
 
 function AnnouncementForm() {
+  const supabase = createClientComponentClient();
   // const [value, setValue] = useState([])
   // const [imageFile, setImageFile] = useState(null)
   const [submittedHTML, setSubmittedHTML] = useState('');
@@ -31,38 +33,25 @@ function AnnouncementForm() {
     handleSubmit,
     formState: { errors }
   } = useForm();
-  // const router = useRouter()
+  const router = useRouter();
 
-  const createAnnouncement = async (data) => {
-    setSubmittedHTML(message);
+  const createAnnouncement = async (formData) => {
+    // setSubmittedHTML(message);
 
     const message = submittedHTML;
-    const date = new Date().toLocaleString().replace(',', '');
+    const created_at = new Date().toLocaleString().replace(',', '');
 
-    const { title, image, type } = data;
+    const { title, image, type } = formData;
 
-    try {
-      await fetch('/api/createAnnouncement', {
-        method: 'POST',
-        body: JSON.stringify({
-          title,
-          message,
-          image,
-          type,
-          date
-        }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-      router.reload();
-    } catch (err) {
-      console.error(err);
+    const { data } = await supabase.from('announcements').insert({ title, message, image, type, created_at }).select();
+
+    if (data) {
+      router.push(`/announcements/${data[0].id}`);
     }
   };
 
   const onSelect = (e) => {
-    e.target.value === 'newsletter' ? setNewsletter(true) : setNewsletter(false);
+    e.target.value === 'Newsletter' ? setNewsletter(true) : setNewsletter(false);
   };
 
   return (
@@ -83,10 +72,10 @@ function AnnouncementForm() {
             onChange={onSelect}
           >
             <option selected=''>Choose an announcement type</option>
-            <option value='ceo'>CEO</option>
-            <option value='hr'>HR Update</option>
-            <option value='announcement'>Announcement</option>
-            <option value='newsletter'>Newsletter</option>
+            <option value='CEO'>CEO</option>
+            <option value='HR'>HR Update</option>
+            <option value='Announcement'>Announcement</option>
+            <option value='Newsletter'>Newsletter</option>
           </select>
           {errors.type && (
             <p className='font-bold text-red-900'>{errors.type?.message}</p>
@@ -202,17 +191,17 @@ function AnnouncementForm() {
           </div>
         )}
 
-        {/* <button
-          className='px-4 py-2 mr-2 font-bold text-white bg-red-800 rounded hover:bg-red-900 focus:outline-none focus:shadow-outline'
+        <button
+          className='inline-block px-4 py-2 mt-3 mr-4 font-bold text-white bg-aptpblue border-none rounded hover:bg-blue-900 focus:outline-none focus:shadow-outline'
           type='submit'
         >
           Save
         </button>
-        <Link href='/'>
-          <a className='inline-block px-4 py-2 mt-3 font-bold text-white bg-red-800 rounded hover:bg-red-900 focus:outline-none focus:shadow-outline'>
-            Cancel
-          </a>
-        </Link> */}
+        <button
+          className='inline-block px-4 py-2 mt-3 mr-4 font-bold text-white bg-aptpblue border-none rounded hover:bg-blue-900 focus:outline-none focus:shadow-outline'
+        >
+          <a href='/'>Cancel</a>
+        </button>
       </form>
     </div>
   );
