@@ -51,7 +51,7 @@ function AnnouncementForm() {
   };
 
   const onSelect = (e) => {
-    e.target.value === 'newsletter' ? setNewsletter(true) : setNewsletter(false);
+    e.target.value === 'Newsletter' ? setNewsletter(true) : setNewsletter(false);
   };
 
   return (
