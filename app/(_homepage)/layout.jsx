@@ -38,14 +38,13 @@ export default async function RootLayout({
     const name = user[0].split('.')
 
   return (
-    <html lang="en" className={`${GeistSans.className} w-screen`}>
+    <html lang="en" className={`${GeistSans.className} w-full md:w-screen`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes='any' />
       </head>
       <body className="w-full m-0 bg-background text-foreground">
         <Header />
-        <div className='container px-2 mx-auto sm:px-0'>
-          <div className='container grid gap-8 pt-4 mx-auto md:grid-cols-5'>
+          <div className='grid grid-cols-1 pt-4 mx-auto md:gap-8 md:grid-cols-5'>
             <div className="flex-col hidden sm:flex">
               <DailyQuote />
               <SocialFeed />
@@ -56,7 +55,6 @@ export default async function RootLayout({
             </div>
             <Sidebar />
           </div>
-        </div>
       
       <Footer />
       <APTQI />
