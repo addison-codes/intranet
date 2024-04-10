@@ -14,7 +14,7 @@ const AnnouncementSection = async () => {
 
   return (
     <div className='col-span-2 sm:col-span-1'>
-      <div className='relative w-full p-6 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 shadow-gray-50'>
+      <div className='relative p-6 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 shadow-gray-50'>
         <a className='flex justify-around' href={`/news`}>
           <h5 className='mt-0 mb-4 text-4xl tracking-tight text-gray-900 drop-shadow-lg w-60 dark:text-white font-universSubheading'>
             <Image

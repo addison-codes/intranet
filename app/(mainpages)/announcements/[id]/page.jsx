@@ -84,7 +84,7 @@ const Announcement = async ({ params }) => {
       </Head>
 
       <div className='flex justify-around p-8 mx-auto my-8 bg-white border-b shadow-md sm:rounded-lg dark:bg-gray-800/95 dark:border-gray-700'>
-        <div className=''>
+        <div className='max-w-full '>
           <h1 className='mb-4 text-4xl font-bold font-universHeading'>
             {announcement?.title}
           </h1>
@@ -108,7 +108,7 @@ const Announcement = async ({ params }) => {
             />
           </div>
         ) : announcement?.type === 'CEO' ? (
-          <div className='pl-4 mt-16 max-w-32'>
+          <div className='hidden pl-4 mt-16 md:relative max-w-32'>
             <Image
               src={'/richard.png'}
               objectFit='cover'
@@ -118,7 +118,7 @@ const Announcement = async ({ params }) => {
             />
           </div>
         ) : announcement?.type === 'Newsletter' ? (
-<div className=""></div>
+<div className="hidden"></div>
         ) : (
           <div className='pl-4'>
             <Image

@@ -40,15 +40,15 @@ const Index = async () => {
             {/* {isSupabaseConnected ? <SignUpUserSteps /> : <ConnectSupabaseSteps />} */}
           </main>
           <div className='flex flex-wrap sm:flex-row'>
-            <div className="w-full sm:w-1/2">
+            <div className="w-full sm:w-1/3">
               <AnnouncementSection />
             </div>
-            <div className="w-full sm:w-1/2">
+            <div className="w-full sm:w-2/3">
               <Calendar />
             </div>
           </div>
           <div className='mt-6'>
-            <ReviewCarousel />
+            {/* <ReviewCarousel /> */}
             <APTQISection />
             <MVV />
           </div>

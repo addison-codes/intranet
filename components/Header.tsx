@@ -14,8 +14,8 @@ export default async function Header({ noimg }: { noimg?: boolean }) {
     <div className="sticky top-0 z-20">
       <header className={'flex sticky flex-col w-full'}>
       {/* <Banner /> */}
-        <nav className='container sticky top-0 order-1 px-4 mx-auto border-gray-200 lg:px-6 dark:bg-gray-900 dark:border-gray-800'>
-          <div className='flex items-center justify-between'>
+        <nav className='container absolute top-0 order-1 px-4 mx-auto border-gray-200 lg:px-6 dark:bg-gray-900 dark:border-gray-800'>
+          <div className='flex flex-row-reverse items-center justify-between md:flex-row'>
             {/* <Dropdown /> */}
             <div className='flex items-center justify-between flex-shrink-0 ml-4 sm:hidden lg:order-2'>
               <button
