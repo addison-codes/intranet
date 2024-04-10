@@ -126,7 +126,6 @@ const Announcements = async () => {
               <h5 className='mb-4 text-2xl font-bold tracking-tight font-universSubheading drop-shadow-sm w-60 dark:text-white'>
                 {latest?.title}
               </h5>
-
               <p className='mb-12 font-normal text-gray-700 dark:text-gray-400'>
                 {latest?.excerpt ?? 'Check out the latest announcement!'}
               </p>
