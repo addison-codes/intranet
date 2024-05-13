@@ -26,7 +26,7 @@ export default async function Page({ params }: { params: any }) {
   return (
     <div className="">
       <div className="flex justify-around mt-8">
-        <Image src={dep.banner_img} width={1200} height={300} style={{objectFit: "cover"}} alt='Workers Compensation Banner' />
+        <Image src={dep.banner_img} width={1200} height={300} style={{}} className='object-scale-down w-full md:cover' alt='Workers Compensation Banner' />
       </div>
         <EditorPage id={dep.main_page} initBlocks={dep.main_page.blocks} edit={false} />
         <Table deptId={dep.id} printable={false} range />

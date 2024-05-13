@@ -44,7 +44,7 @@ export default async function RootLayout({
       </head>
       <body className="w-full m-0 bg-background text-foreground">
         <Header />
-          <div className='grid grid-cols-1 pt-4 mx-auto md:gap-8 md:grid-cols-5'>
+          <div className='grid max-w-full grid-cols-1 pt-4 mx-auto md:gap-6 md:grid-cols-5'>
             <div className="flex-col hidden sm:flex">
               <DailyQuote />
               <SocialFeed />

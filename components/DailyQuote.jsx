@@ -12,7 +12,7 @@ const data = await getquote()
 
 const DailyQuote = () => {
   return (
-    <div className='mb-8'>
+    <div className='mb-8 ml-2'>
       <h5 className='mb-4 text-4xl tracking-tight text-gray-900 drop-shadow-lg w-60 dark:text-white font-universSubheading'>
         <span className=''>Daily Quote</span>
       </h5>
