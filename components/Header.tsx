@@ -106,7 +106,7 @@ export default async function Header({ noimg }: { noimg?: boolean }) {
                   </li>
                   <li>
                     <a
-                      href='https://lifeatallianceptp.com/career-opportunities/'
+                      href='https://lifeatalliance.com/career-opportunities/'
                       className='block py-2 pl-3 pr-4 font-bold text-white no-underline border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-200 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700'
                     >
                       Open Jobs
