@@ -255,6 +255,17 @@ export default async function Header({ noimg }: { noimg?: boolean }) {
                       updates.
                     </p>
                   </li>
+                  <li>
+                    <a
+                      href='/departments/staff-recognition'
+                      className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
+                    >
+                      Staff Recognition
+                    </a>
+                    <p>
+                      We show our appreciation for our team members through our recognition program.
+                    </p>
+                  </li>
 
                   <li>
                     <a
