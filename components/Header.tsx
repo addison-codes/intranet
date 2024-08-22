@@ -266,6 +266,17 @@ export default async function Header({ noimg }: { noimg?: boolean }) {
                       We show our appreciation for our team members through our recognition program.
                     </p>
                   </li>
+                  <li>
+                    <a
+                      href='/departments/university-relations'
+                      className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
+                    >
+                      University Relations
+                    </a>
+                    <p>
+                      View resources, processes, and other information related to our university relations program.
+                    </p>
+                  </li>
 
                   <li>
                     <a
