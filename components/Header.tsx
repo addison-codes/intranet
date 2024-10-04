@@ -235,7 +235,7 @@ export default async function Header({ noimg }: { noimg?: boolean }) {
                       href='/departments/continuing-education'
                       className='text-lg font-bold hover:underline hover:text-blue-600 dark:hover:text-blue-500'
                     >
-                      Continuing Education
+                      Professional Development
                     </a>
                     <p>
                       Check out resources, forms, and updates related to our

@@ -34,7 +34,7 @@ const Departments = () => {
           Information Technology
         </a>
         <a
-          href="/departments/worker-compensation"
+          href="/departments/workers-compensation"
           className="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-aptpblue focus:outline-none focus:ring-2 focus:ring-aptpblue focus:text-aptpblue dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
         >
           Workers Compensation
@@ -51,7 +51,7 @@ const Departments = () => {
           href="/departments/continuing-education"
           className="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-aptpblue focus:outline-none focus:ring-2 focus:ring-aptpblue focus:text-aptpblue dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
         >
-          Continuing Education
+          Professional Development
         </a>
         <a
           href="/departments/compliance"
